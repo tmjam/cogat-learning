@@ -85,6 +85,10 @@ You can customize the application by editing `index.html`:
 - **Colors**: Modify the gradient colors in the CSS section
 - **Content**: Add or modify lessons in the JavaScript section
 - **Modules**: Create new modules with different topics
+- **Analytics**: Replace `GA_MEASUREMENT_ID` with your Google Analytics ID
+- **Ads**: Replace `ca-pub-XXXXXXXXXXXXXXXX` with your AdSense Publisher ID
+
+See `ANALYTICS_ADSENSE_GUIDE.md` for detailed setup instructions.
 
 ## 📄 License
 

@@ -5,6 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>🌟 CogAT Learning Adventure 🌟</title>
     <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-FYMVL7N0Z6"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-FYMVL7N0Z6');
+    </script>
+    
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1150129205186961"
+     crossorigin="anonymous"></script>
     <style>
         * {
             margin: 0;
@@ -716,6 +729,38 @@
             font-size: 2em;
             margin-right: 10px;
         }
+
+        /* Google AdSense Styles */
+        .ad-container {
+            margin: 30px auto;
+            text-align: center;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 15px;
+            max-width: 728px;
+        }
+
+        .ad-label {
+            font-size: 0.8em;
+            color: #999;
+            margin-bottom: 10px;
+            font-weight: 500;
+        }
+
+        /* Responsive Ad Container */
+        .ad-container-responsive {
+            min-height: 100px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        @media (max-width: 768px) {
+            .ad-container {
+                max-width: 100%;
+            }
+        }
     </style>
 </head>
 <body>
@@ -758,6 +803,21 @@
             </div>
         </div>
 
+        <!-- Top Banner Ad -->
+        <div class="ad-container" style="position: relative; z-index: 1;">
+            <div class="ad-label">Advertisement</div>
+            <div class="ad-container-responsive">
+                <!-- Horizontal Banner Ad (728x90 or responsive) -->
+                <ins class="adsbygoogle"
+                     style="display:inline-block;width:728px;height:90px"
+                     data-ad-client="ca-pub-1150129205186961"
+                     data-ad-slot="1234567890"></ins>
+                <script>
+                     (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+            </div>
+        </div>
+
         <div class="progress-container">
             <div class="progress-header">
                 <span>Overall Progress</span>
@@ -773,6 +833,23 @@
         <div id="main-menu">
             <div class="module-grid" id="module-grid">
                 <!-- Modules will be inserted here -->
+            </div>
+
+            <!-- Bottom Ad in Main Menu -->
+            <div class="ad-container" style="position: relative; z-index: 1; margin-top: 20px;">
+                <div class="ad-label">Advertisement</div>
+                <div class="ad-container-responsive">
+                    <!-- Responsive Ad -->
+                    <ins class="adsbygoogle"
+                         style="display:block"
+                         data-ad-client="ca-pub-1150129205186961"
+                         data-ad-slot="0987654321"
+                         data-ad-format="auto"
+                         data-full-width-responsive="true"></ins>
+                    <script>
+                         (adsbygoogle = window.adsbygoogle || []).push({});
+                    </script>
+                </div>
             </div>
         </div>
 
@@ -791,6 +868,11 @@
                 <button class="btn btn-primary" id="next-btn" onclick="nextQuestion()" style="display: none;">Next Question ➡️</button>
             </div>
         </div>
+
+        <footer style="text-align: center; margin-top: 40px; padding: 20px; color: #666; font-size: 0.9em; position: relative; z-index: 1;">
+            <p>© 2026 CogAT Learning Adventure | <a href="privacy.html" style="color: #667eea; text-decoration: none; font-weight: 600;">Privacy Policy</a></p>
+            <p style="margin-top: 10px; font-size: 0.85em;">Making learning fun, one lesson at a time! 🌟</p>
+        </footer>
     </div>
 
     <script>
