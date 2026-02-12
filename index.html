@@ -1,0 +1,1365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🌟 CogAT Learning Adventure 🌟</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Fredoka', 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 30px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .animated-bg {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        .floating-shape {
+            position: absolute;
+            opacity: 0.08;
+            animation: float-shapes 20s infinite ease-in-out;
+        }
+
+        .shape-1 { top: 5%; left: 5%; animation-delay: 0s; }
+        .shape-2 { top: 15%; right: 10%; animation-delay: 3s; }
+        .shape-3 { bottom: 10%; left: 15%; animation-delay: 6s; }
+        .shape-4 { top: 50%; right: 5%; animation-delay: 9s; }
+        .shape-5 { bottom: 20%; right: 20%; animation-delay: 12s; }
+
+        @keyframes float-shapes {
+            0%, 100% { transform: translate(0, 0) rotate(0deg) scale(1); }
+            25% { transform: translate(20px, -20px) rotate(90deg) scale(1.1); }
+            50% { transform: translate(-20px, 20px) rotate(180deg) scale(0.9); }
+            75% { transform: translate(20px, 20px) rotate(270deg) scale(1.05); }
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .header h1 {
+            font-size: 3.5em;
+            font-weight: 700;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1, #f7dc6f, #ff6b6b);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: gradient-shift 3s linear infinite;
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+        }
+
+        @keyframes gradient-shift {
+            0% { background-position: 0% center; }
+            100% { background-position: 200% center; }
+        }
+
+        .header p {
+            font-size: 1.3em;
+            color: #666;
+            font-weight: 500;
+        }
+
+        .stats-bar {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-bottom: 30px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .stat-card:nth-child(2) {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        }
+
+        .stat-card:nth-child(3) {
+            background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+        }
+
+        .stat-number {
+            font-size: 2.5em;
+            font-weight: 700;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .stat-label {
+            font-size: 0.9em;
+            opacity: 0.9;
+            font-weight: 500;
+        }
+
+        .progress-container {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            border-radius: 25px;
+            padding: 25px;
+            margin-bottom: 30px;
+            position: relative;
+            z-index: 1;
+            box-shadow: inset 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .progress-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .progress-bar-bg {
+            height: 35px;
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: inset 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, #667eea, #764ba2, #f093fb);
+            background-size: 200% 100%;
+            transition: width 0.5s ease;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding-right: 15px;
+            color: white;
+            font-weight: 700;
+            animation: progress-shimmer 2s linear infinite;
+        }
+
+        @keyframes progress-shimmer {
+            0% { background-position: 0% center; }
+            100% { background-position: 200% center; }
+        }
+
+        .module-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+            margin-bottom: 30px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .module-card {
+            background: white;
+            border-radius: 25px;
+            padding: 30px;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+            border: 3px solid transparent;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .module-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            opacity: 0;
+            transition: opacity 0.3s;
+            z-index: -1;
+        }
+
+        .module-card:hover::before {
+            opacity: 1;
+        }
+
+        .module-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
+            border-color: #667eea;
+        }
+
+        .module-card:hover .module-content {
+            color: white;
+        }
+
+        .module-card:hover .module-icon {
+            transform: scale(1.2) rotate(10deg);
+        }
+
+        .module-card.locked {
+            opacity: 0.5;
+            cursor: not-allowed;
+            background: linear-gradient(135deg, #e0e0e0 0%, #bdbdbd 100%);
+        }
+
+        .module-card.locked:hover {
+            transform: none;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .module-card.completed::after {
+            content: '✓';
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 1.5em;
+            box-shadow: 0 5px 15px rgba(17, 153, 142, 0.4);
+        }
+
+        .module-icon {
+            font-size: 4em;
+            text-align: center;
+            margin-bottom: 15px;
+            transition: transform 0.3s;
+            filter: drop-shadow(0 5px 10px rgba(0,0,0,0.2));
+        }
+
+        .module-content {
+            position: relative;
+            z-index: 1;
+            transition: color 0.3s;
+        }
+
+        .module-number {
+            font-size: 1em;
+            font-weight: 700;
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+
+        .module-title {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+            font-weight: 700;
+            color: #333;
+        }
+
+        .module-desc {
+            font-size: 0.95em;
+            color: #666;
+            line-height: 1.5;
+            margin-bottom: 15px;
+        }
+
+        .module-progress {
+            background: #f0f0f0;
+            height: 8px;
+            border-radius: 5px;
+            overflow: hidden;
+            margin-top: 15px;
+        }
+
+        .module-progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            transition: width 0.3s;
+        }
+
+        .lesson-area {
+            display: none;
+            position: relative;
+            z-index: 1;
+        }
+
+        .lesson-area.active {
+            display: block;
+            animation: fadeInUp 0.5s;
+        }
+
+        @keyframes fadeInUp {
+            from { 
+                opacity: 0; 
+                transform: translateY(30px); 
+            }
+            to { 
+                opacity: 1; 
+                transform: translateY(0); 
+            }
+        }
+
+        .lesson-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 25px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+        }
+
+        .lesson-header h2 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .lesson-meta {
+            display: flex;
+            gap: 20px;
+            margin-top: 15px;
+            flex-wrap: wrap;
+        }
+
+        .lesson-badge {
+            background: rgba(255,255,255,0.2);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: 600;
+        }
+
+        .question-container {
+            background: linear-gradient(135deg, #f5f7fa 0%, #e8ecf1 100%);
+            padding: 40px;
+            border-radius: 25px;
+            margin-bottom: 25px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .question-number {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            font-size: 1.1em;
+        }
+
+        .question-text {
+            font-size: 1.8em;
+            color: #333;
+            margin-bottom: 30px;
+            text-align: center;
+            font-weight: 600;
+            line-height: 1.4;
+        }
+
+        .visual-area {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 30px 0;
+            min-height: 150px;
+        }
+
+        .pattern-display {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .pattern-item {
+            width: 80px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3em;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .pattern-item:hover {
+            transform: scale(1.1);
+        }
+
+        .pattern-item.question-mark {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            font-weight: 700;
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        .options-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .option-btn {
+            padding: 30px 20px;
+            border: 4px solid #e0e0e0;
+            border-radius: 20px;
+            background: white;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            font-size: 1.4em;
+            font-weight: 700;
+            color: #333;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .option-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.5), transparent);
+            transition: left 0.5s;
+        }
+
+        .option-btn:hover::before {
+            left: 100%;
+        }
+
+        .option-btn:hover {
+            transform: translateY(-5px) scale(1.05);
+            border-color: #667eea;
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
+        }
+
+        .option-btn.correct {
+            background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+            border-color: #11998e;
+            color: white;
+            animation: correctBounce 0.5s;
+        }
+
+        .option-btn.incorrect {
+            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 100%);
+            border-color: #c92a2a;
+            color: white;
+            animation: shake 0.5s;
+        }
+
+        @keyframes correctBounce {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-10px); }
+            75% { transform: translateX(10px); }
+        }
+
+        .option-btn:disabled {
+            cursor: not-allowed;
+        }
+
+        .feedback {
+            display: none;
+            padding: 30px;
+            border-radius: 20px;
+            margin-top: 30px;
+            text-align: center;
+            font-size: 1.4em;
+            font-weight: 700;
+            animation: slideIn 0.5s;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .feedback.correct {
+            background: linear-gradient(135d, #d4edda 0%, #c3e6cb 100%);
+            color: #155724;
+            border: 4px solid #28a745;
+        }
+
+        .feedback.incorrect {
+            background: linear-gradient(135deg, #f8d7da 0%, #f5c6cb 100%);
+            color: #721c24;
+            border: 4px solid #dc3545;
+        }
+
+        .feedback-icon {
+            font-size: 3em;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .nav-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 18px 45px;
+            border: none;
+            border-radius: 30px;
+            font-size: 1.2em;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            color: white;
+            font-family: 'Fredoka', sans-serif;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .btn-success {
+            background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+        }
+
+        .btn-back {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+        }
+
+        .btn:active {
+            transform: translateY(-1px) scale(1.02);
+        }
+
+        .celebration {
+            display: none;
+            text-align: center;
+            padding: 50px;
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            border-radius: 25px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .celebration.active {
+            display: block;
+            animation: zoomIn 0.5s;
+        }
+
+        @keyframes zoomIn {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .celebration h2 {
+            font-size: 3em;
+            color: #667eea;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .stars {
+            font-size: 4em;
+            margin: 20px 0;
+            animation: twinkle 1s infinite;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+
+        .score-display {
+            font-size: 2em;
+            margin: 20px 0;
+            color: #333;
+            font-weight: 700;
+        }
+
+        .percentage {
+            font-size: 3em;
+            color: #11998e;
+            font-weight: 700;
+            display: block;
+            margin: 20px 0;
+        }
+
+        /* Graphics Enhancements */
+        .svg-graphic {
+            max-width: 200px;
+            margin: 20px auto;
+            display: block;
+        }
+
+        .shape-group {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .shape-svg {
+            width: 70px;
+            height: 70px;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .shape-svg:hover {
+            transform: scale(1.2) rotate(10deg);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 2.5em;
+            }
+
+            .module-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .question-text {
+                font-size: 1.4em;
+            }
+
+            .options-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .pattern-item {
+                width: 60px;
+                height: 60px;
+                font-size: 2em;
+            }
+        }
+
+        .hint-box {
+            background: linear-gradient(135deg, #ffeaa7 0%, #fdcb6e 100%);
+            padding: 20px;
+            border-radius: 15px;
+            margin-top: 20px;
+            border: 3px solid #f39c12;
+            display: none;
+        }
+
+        .hint-box.show {
+            display: block;
+            animation: slideIn 0.5s;
+        }
+
+        .hint-icon {
+            font-size: 2em;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="animated-bg">
+            <svg class="floating-shape shape-1" width="150" height="150" viewBox="0 0 150 150">
+                <circle cx="75" cy="75" r="60" fill="#ff6b6b" opacity="0.3"/>
+            </svg>
+            <svg class="floating-shape shape-2" width="120" height="120" viewBox="0 0 120 120">
+                <rect width="100" height="100" x="10" y="10" fill="#4ecdc4" opacity="0.3" rx="20"/>
+            </svg>
+            <svg class="floating-shape shape-3" width="140" height="140" viewBox="0 0 140 140">
+                <polygon points="70,20 120,110 20,110" fill="#f7dc6f" opacity="0.3"/>
+            </svg>
+            <svg class="floating-shape shape-4" width="100" height="100" viewBox="0 0 100 100">
+                <polygon points="50,10 90,35 75,80 25,80 10,35" fill="#a29bfe" opacity="0.3"/>
+            </svg>
+            <svg class="floating-shape shape-5" width="130" height="130" viewBox="0 0 130 130">
+                <path d="M 65,10 L 120,65 L 65,120 L 10,65 Z" fill="#fd79a8" opacity="0.3"/>
+            </svg>
+        </div>
+
+        <div class="header">
+            <h1>🌟 CogAT Learning Adventure 🌟</h1>
+            <p>Master Every Skill • Have Amazing Fun • Become a Superstar!</p>
+        </div>
+
+        <div class="stats-bar">
+            <div class="stat-card">
+                <span class="stat-number" id="modules-completed">0</span>
+                <span class="stat-label">Modules Completed</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-number" id="total-lessons">0</span>
+                <span class="stat-label">Lessons Finished</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-number" id="accuracy-rate">0%</span>
+                <span class="stat-label">Accuracy Rate</span>
+            </div>
+        </div>
+
+        <div class="progress-container">
+            <div class="progress-header">
+                <span>Overall Progress</span>
+                <span id="progress-text">0%</span>
+            </div>
+            <div class="progress-bar-bg">
+                <div class="progress-bar" id="progress-bar" style="width: 0%">
+                    <span id="progress-label"></span>
+                </div>
+            </div>
+        </div>
+
+        <div id="main-menu">
+            <div class="module-grid" id="module-grid">
+                <!-- Modules will be inserted here -->
+            </div>
+        </div>
+
+        <div class="lesson-area" id="lesson-area">
+            <div class="lesson-header">
+                <h2 id="lesson-title"></h2>
+                <p id="lesson-subtitle"></p>
+                <div class="lesson-meta">
+                    <span class="lesson-badge" id="lesson-progress-badge"></span>
+                    <span class="lesson-badge" id="lesson-score-badge"></span>
+                </div>
+            </div>
+            <div id="question-area"></div>
+            <div class="nav-buttons">
+                <button class="btn btn-back" onclick="backToMenu()">🏠 Back to Menu</button>
+                <button class="btn btn-primary" id="next-btn" onclick="nextQuestion()" style="display: none;">Next Question ➡️</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const modules = [
+            {
+                id: 1,
+                title: "Shapes & Patterns",
+                description: "Master shape recognition and visual patterns with fun puzzles!",
+                icon: "🔷",
+                color: "#667eea",
+                lessons: generateShapeLessons()
+            },
+            {
+                id: 2,
+                title: "Number Sequences",
+                description: "Discover number patterns and counting sequences!",
+                icon: "🔢",
+                color: "#4ecdc4",
+                lessons: generateNumberLessons()
+            },
+            {
+                id: 3,
+                title: "Picture Analogies",
+                description: "Learn relationships between pictures and concepts!",
+                icon: "🖼️",
+                color: "#ff6b6b",
+                lessons: generateAnalogyLessons()
+            },
+            {
+                id: 4,
+                title: "Sorting & Grouping",
+                description: "Group things that belong together and find differences!",
+                icon: "📦",
+                color: "#f7dc6f",
+                lessons: generateSortingLessons()
+            },
+            {
+                id: 5,
+                title: "Memory Challenge",
+                description: "Train your memory with fun recall exercises!",
+                icon: "🧠",
+                color: "#a29bfe",
+                lessons: generateMemoryLessons()
+            },
+            {
+                id: 6,
+                title: "Logic & Reasoning",
+                description: "Solve puzzles using your amazing thinking skills!",
+                icon: "🧩",
+                color: "#fd79a8",
+                lessons: generateLogicLessons()
+            },
+            {
+                id: 7,
+                title: "Size & Comparison",
+                description: "Compare sizes, lengths, and quantities!",
+                icon: "📏",
+                color: "#00b894",
+                lessons: generateComparisonLessons()
+            },
+            {
+                id: 8,
+                title: "Position & Direction",
+                description: "Learn about spatial relationships and directions!",
+                icon: "🧭",
+                color: "#6c5ce7",
+                lessons: generatePositionLessons()
+            },
+            {
+                id: 9,
+                title: "Word Relationships",
+                description: "Explore how words and meanings connect!",
+                icon: "📚",
+                color: "#e17055",
+                lessons: generateWordLessons()
+            },
+            {
+                id: 10,
+                title: "Advanced Puzzles",
+                description: "Challenge yourself with complex problem-solving!",
+                icon: "🎯",
+                color: "#00cec9",
+                lessons: generateAdvancedLessons()
+            }
+        ];
+
+        function generateShapeLessons() {
+            return [
+                { type: "pattern", question: "Which shape comes next?", pattern: ["🔴", "🔵", "🔴", "🔵", "🔴", "?"], options: ["🔵", "🔴", "🟡", "🟢"], correct: 0 },
+                { type: "pattern", question: "Complete this pattern!", pattern: ["⭐", "⭐", "🌙", "⭐", "⭐", "?"], options: ["⭐", "🌙", "☀️", "🌟"], correct: 1 },
+                { type: "pattern", question: "What comes next?", pattern: ["🔺", "🔵", "🟪", "🔺", "🔵", "?"], options: ["🔺", "🔵", "🟪", "🟡"], correct: 2 },
+                { type: "shape-match", question: "Which shape is different?", options: ["🔺", "🔺", "🔺", "🔵"], correct: 3 },
+                { type: "pattern", question: "Find the missing shape!", pattern: ["🟥", "🟦", "🟥", "🟦", "?"], options: ["🟥", "🟦", "🟨", "🟩"], correct: 0 },
+                { type: "pattern", question: "Complete the sequence!", pattern: ["⬛", "⬜", "⬛", "⬜", "⬛", "?"], options: ["⬛", "⬜", "🟥", "🟦"], correct: 1 },
+                { type: "pattern", question: "Which one comes next?", pattern: ["🌟", "💫", "✨", "🌟", "💫", "?"], options: ["🌟", "💫", "✨", "⭐"], correct: 2 },
+                { type: "shape-match", question: "Find the odd one out!", options: ["🔵", "🔵", "🟡", "🔵"], correct: 2 },
+                { type: "pattern", question: "Continue the pattern!", pattern: ["🟩", "🟩", "🟦", "🟩", "🟩", "?"], options: ["🟩", "🟦", "🟥", "🟨"], correct: 1 },
+                { type: "pattern", question: "What's missing?", pattern: ["⭕", "❌", "⭕", "❌", "?"], options: ["⭕", "❌", "🔺", "🔵"], correct: 0 },
+                { type: "pattern", question: "Complete this!", pattern: ["🟨", "🟧", "🟥", "🟨", "🟧", "?"], options: ["🟨", "🟧", "🟥", "🟩"], correct: 2 },
+                { type: "shape-match", question: "Which is different?", options: ["⭐", "⭐", "⭐", "🌙"], correct: 3 },
+                { type: "pattern", question: "Find the next one!", pattern: ["🔷", "🔶", "🔷", "🔶", "?"], options: ["🔷", "🔶", "🔵", "🟡"], correct: 0 },
+                { type: "pattern", question: "What comes next?", pattern: ["💚", "💙", "💜", "💚", "💙", "?"], options: ["💚", "💙", "💜", "❤️"], correct: 2 },
+                { type: "pattern", question: "Continue the sequence!", pattern: ["⬜", "⬛", "⬜", "⬜", "⬛", "⬜", "⬜", "⬛", "?"], options: ["⬜", "⬛", "🟥", "🟦"], correct: 0 },
+                { type: "shape-match", question: "Find what doesn't belong!", options: ["🟦", "🟦", "🟦", "🟥"], correct: 3 },
+                { type: "pattern", question: "Complete the pattern!", pattern: ["🌈", "☁️", "🌈", "☁️", "?"], options: ["🌈", "☁️", "⭐", "🌙"], correct: 0 },
+                { type: "pattern", question: "What's next?", pattern: ["🎈", "🎈", "🎁", "🎈", "🎈", "?"], options: ["🎈", "🎁", "🎉", "🎊"], correct: 1 },
+                { type: "pattern", question: "Find the missing piece!", pattern: ["🍎", "🍊", "🍎", "🍊", "🍎", "?"], options: ["🍎", "🍊", "🍋", "🍓"], correct: 1 },
+                { type: "shape-match", question: "Which one is unique?", options: ["💙", "💚", "💙", "💙"], correct: 1 }
+            ];
+        }
+
+        function generateNumberLessons() {
+            return [
+                { type: "number", question: "What number comes next? 1, 2, 3, 4, __", options: ["3", "5", "6", "4"], correct: 1 },
+                { type: "number", question: "Continue: 2, 4, 6, 8, __", options: ["9", "10", "11", "12"], correct: 1 },
+                { type: "number", question: "Count the stars! ⭐⭐⭐⭐⭐", options: ["3", "4", "5", "6"], correct: 2 },
+                { type: "number", question: "What's next? 5, 10, 15, 20, __", options: ["22", "25", "30", "35"], correct: 1 },
+                { type: "number", question: "Count the hearts! ❤️❤️❤️❤️❤️❤️❤️", options: ["5", "6", "7", "8"], correct: 2 },
+                { type: "number", question: "Continue: 1, 3, 5, 7, __", options: ["8", "9", "10", "11"], correct: 1 },
+                { type: "number", question: "What comes next? 10, 9, 8, 7, __", options: ["5", "6", "7", "8"], correct: 1 },
+                { type: "number", question: "Count the circles! ⭕⭕⭕⭕", options: ["2", "3", "4", "5"], correct: 2 },
+                { type: "number", question: "What's missing? 3, 6, 9, __, 15", options: ["10", "11", "12", "13"], correct: 2 },
+                { type: "number", question: "Continue: 20, 18, 16, 14, __", options: ["10", "11", "12", "13"], correct: 2 },
+                { type: "number", question: "Count them! 🌟🌟🌟🌟🌟🌟🌟🌟🌟", options: ["7", "8", "9", "10"], correct: 2 },
+                { type: "number", question: "What's next? 1, 1, 2, 2, 3, 3, __", options: ["3", "4", "5", "6"], correct: 1 },
+                { type: "number", question: "Continue: 5, 5, 10, 10, 15, 15, __", options: ["15", "20", "25", "30"], correct: 1 },
+                { type: "number", question: "Count the dots! 🔵🔵🔵🔵🔵🔵", options: ["4", "5", "6", "7"], correct: 2 },
+                { type: "number", question: "What comes next? 2, 2, 4, 4, 6, 6, __", options: ["6", "8", "10", "12"], correct: 1 },
+                { type: "number", question: "Count all! 🍎🍎🍎🍎🍎🍎🍎🍎", options: ["6", "7", "8", "9"], correct: 2 },
+                { type: "number", question: "Continue: 10, 20, 30, 40, __", options: ["45", "50", "55", "60"], correct: 1 },
+                { type: "number", question: "What's next? 1, 4, 7, 10, __", options: ["11", "12", "13", "14"], correct: 2 },
+                { type: "number", question: "Count the squares! ⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛", options: ["8", "9", "10", "11"], correct: 2 },
+                { type: "number", question: "What comes next? 100, 90, 80, 70, __", options: ["50", "60", "70", "80"], correct: 1 }
+            ];
+        }
+
+        function generateAnalogyLessons() {
+            return [
+                { type: "analogy", question: "Cat is to Kitten as Dog is to __", options: ["🐕", "🐶", "🦴", "🏠"], correct: 1, hint: "Baby dog!" },
+                { type: "analogy", question: "Hot is to ☀️ as Cold is to __", options: ["🔥", "❄️", "💧", "🌧️"], correct: 1 },
+                { type: "analogy", question: "Day is to 🌞 as Night is to __", options: ["⭐", "🌙", "☁️", "🌈"], correct: 1 },
+                { type: "analogy", question: "Happy is to 😊 as Sad is to __", options: ["😢", "😡", "😴", "😋"], correct: 0 },
+                { type: "analogy", question: "Bird is to Fly as Fish is to __", options: ["🏃", "🏊", "🚶", "🧗"], correct: 1 },
+                { type: "analogy", question: "Cow is to 🥛 as Chicken is to __", options: ["🍗", "🥚", "🍖", "🧀"], correct: 1 },
+                { type: "analogy", question: "Wet is to 💧 as Dry is to __", options: ["☀️", "🌊", "💨", "❄️"], correct: 0 },
+                { type: "analogy", question: "Big is to 🐘 as Small is to __", options: ["🦁", "🐭", "🦒", "🐻"], correct: 1 },
+                { type: "analogy", question: "Up is to ⬆️ as Down is to __", options: ["⬅️", "➡️", "⬇️", "↗️"], correct: 2 },
+                { type: "analogy", question: "Teacher is to 🏫 as Doctor is to __", options: ["🏥", "🏪", "🏠", "🏢"], correct: 0 },
+                { type: "analogy", question: "Hungry is to 🍕 as Thirsty is to __", options: ["🍔", "🧃", "🍦", "🍪"], correct: 1 },
+                { type: "analogy", question: "Pen is to ✍️ as Scissors is to __", options: ["✏️", "✂️", "📏", "📐"], correct: 1 },
+                { type: "analogy", question: "Car is to 🛣️ as Boat is to __", options: ["🌊", "🏔️", "🌲", "🏜️"], correct: 0 },
+                { type: "analogy", question: "Spring is to 🌸 as Winter is to __", options: ["🍂", "☀️", "❄️", "🍁"], correct: 2 },
+                { type: "analogy", question: "Young is to 👶 as Old is to __", options: ["👴", "👦", "👨", "👱"], correct: 0 },
+                { type: "analogy", question: "Morning is to 🌅 as Evening is to __", options: ["🌄", "🌆", "🌇", "🌃"], correct: 2 },
+                { type: "analogy", question: "Read is to 📖 as Listen is to __", options: ["👀", "👂", "👃", "👄"], correct: 1 },
+                { type: "analogy", question: "King is to 👑 as Knight is to __", options: ["⚔️", "🛡️", "🏰", "🐴"], correct: 0 },
+                { type: "analogy", question: "Rain is to ☔ as Snow is to __", options: ["⛷️", "🧥", "🧤", "❄️"], correct: 0 },
+                { type: "analogy", question: "Sweet is to 🍯 as Sour is to __", options: ["🍋", "🍎", "🍊", "🍇"], correct: 0 }
+            ];
+        }
+
+        function generateSortingLessons() {
+            return [
+                { type: "classify", question: "Which doesn't belong?", options: ["🍎", "🍌", "🍊", "🚗"], correct: 3 },
+                { type: "classify", question: "Find the different one!", options: ["🐶", "🐱", "🐭", "🍕"], correct: 3 },
+                { type: "classify", question: "Which doesn't fit?", options: ["⚽", "🏀", "🎾", "🌺"], correct: 3 },
+                { type: "classify", question: "What's different?", options: ["🌹", "🌻", "🌷", "🦋"], correct: 3 },
+                { type: "classify", question: "Find the odd one!", options: ["✈️", "🚗", "🚢", "🍔"], correct: 3 },
+                { type: "classify", question: "Which doesn't match?", options: ["🎸", "🎹", "🎺", "📱"], correct: 3 },
+                { type: "classify", question: "What doesn't belong?", options: ["🍕", "🍔", "🌮", "⚽"], correct: 3 },
+                { type: "classify", question: "Find the different!", options: ["👕", "👖", "👗", "🍎"], correct: 3 },
+                { type: "classify", question: "Which is unique?", options: ["🟥", "🟦", "🟨", "🐱"], correct: 3 },
+                { type: "classify", question: "What's the odd one?", options: ["📚", "📖", "📝", "🍰"], correct: 3 },
+                { type: "classify", question: "Find what doesn't fit!", options: ["🌞", "⭐", "🌙", "🍕"], correct: 3 },
+                { type: "classify", question: "Which is different?", options: ["🦁", "🐯", "🐻", "🎈"], correct: 3 },
+                { type: "classify", question: "What doesn't belong?", options: ["🏠", "🏫", "🏥", "🎾"], correct: 3 },
+                { type: "classify", question: "Find the odd one!", options: ["🍇", "🍓", "🍑", "🚲"], correct: 3 },
+                { type: "classify", question: "Which doesn't match?", options: ["💐", "🌺", "🌸", "🔨"], correct: 3 },
+                { type: "classify", question: "What's unique?", options: ["🎨", "🖌️", "✏️", "🐟"], correct: 3 },
+                { type: "classify", question: "Find the different one!", options: ["⛰️", "🏔️", "🗻", "🍦"], correct: 3 },
+                { type: "classify", question: "Which is odd?", options: ["🌊", "💧", "🌧️", "🎪"], correct: 3 },
+                { type: "classify", question: "What doesn't fit?", options: ["🎁", "🎀", "🎊", "🥕"], correct: 3 },
+                { type: "classify", question: "Find what's different!", options: ["🌈", "☁️", "⚡", "🧲"], correct: 3 }
+            ];
+        }
+
+        function generateMemoryLessons() {
+            return [
+                { type: "memory", question: "Remember: 🐕🐱🐭 ... Which was shown?", options: ["🐕", "🐘", "🦁", "🦒"], correct: 0 },
+                { type: "memory", question: "I showed: ⭐🌙☀️ ... Which one?", options: ["💫", "🌙", "🌟", "✨"], correct: 1 },
+                { type: "memory", question: "Remember: 🔴🔵🟡 ... What came first?", options: ["🟡", "🔵", "🔴", "🟢"], correct: 2 },
+                { type: "memory", question: "Recall: 🍎🍊🍋 ... Which one?", options: ["🍎", "🍌", "🍇", "🍓"], correct: 0 },
+                { type: "memory", question: "Remember: 🚗🚕🚙 ... Which was there?", options: ["🚗", "✈️", "🚂", "🚢"], correct: 0 },
+                { type: "memory", question: "I showed: 🎈🎁🎉 ... Which one?", options: ["🎊", "🎁", "🎀", "🎂"], correct: 1 },
+                { type: "memory", question: "Recall: ❤️💙💚 ... What was last?", options: ["💜", "❤️", "💚", "💛"], correct: 2 },
+                { type: "memory", question: "Remember: 🐶🐱🐰 ... Which one?", options: ["🐭", "🐱", "🐸", "🐷"], correct: 1 },
+                { type: "memory", question: "I showed: 🌸🌺🌻 ... Which was there?", options: ["🌷", "🌺", "🌹", "🏵️"], correct: 1 },
+                { type: "memory", question: "Recall: 🟥🟦🟨 ... What came second?", options: ["🟥", "🟦", "🟨", "🟩"], correct: 1 },
+                { type: "memory", question: "Remember: 📚📖📝 ... Which one?", options: ["📚", "📕", "📗", "📘"], correct: 0 },
+                { type: "memory", question: "I showed: ⚽🏀🎾 ... Which was there?", options: ["⚾", "🏀", "🏈", "🥎"], correct: 1 },
+                { type: "memory", question: "Recall: 🍕🍔🌮 ... What was first?", options: ["🍕", "🍟", "🌭", "🥪"], correct: 0 },
+                { type: "memory", question: "Remember: 🎵🎶🎼 ... Which one?", options: ["🎤", "🎶", "🎸", "🎹"], correct: 1 },
+                { type: "memory", question: "I showed: 🌞🌝🌛 ... Which was there?", options: ["🌜", "🌝", "🌚", "🌕"], correct: 1 },
+                { type: "memory", question: "Recall: 🏠🏫🏥 ... What came last?", options: ["🏪", "🏫", "🏥", "🏢"], correct: 2 },
+                { type: "memory", question: "Remember: 👕👖👗 ... Which one?", options: ["👔", "👖", "👘", "👚"], correct: 1 },
+                { type: "memory", question: "I showed: 🌲🌳🌴 ... Which was there?", options: ["🌱", "🌳", "🌿", "🍀"], correct: 1 },
+                { type: "memory", question: "Recall: ✈️🚗🚢 ... What was in the middle?", options: ["✈️", "🚗", "🚢", "🚂"], correct: 1 },
+                { type: "memory", question: "Remember: 🎨🖌️✏️ ... Which one?", options: ["🎨", "🖍️", "✂️", "📏"], correct: 0 }
+            ];
+        }
+
+        function generateLogicLessons() {
+            return [
+                { type: "logic", question: "If all dogs have 4 legs, how many legs do 2 dogs have?", options: ["4", "6", "8", "10"], correct: 2 },
+                { type: "logic", question: "Which is bigger? 🐘 or 🐁", options: ["🐘", "🐁", "Same", "Can't tell"], correct: 0 },
+                { type: "logic", question: "What comes after breakfast?", options: ["Dinner", "Lunch", "Snack", "Bed"], correct: 1 },
+                { type: "logic", question: "If you add 1 🍎 and 1 🍎, how many do you have?", options: ["1", "2", "3", "4"], correct: 1 },
+                { type: "logic", question: "Which is heavier? 🪨 or 🪶", options: ["🪨", "🪶", "Same", "Can't tell"], correct: 0 },
+                { type: "logic", question: "What season comes after summer?", options: ["Spring", "Fall", "Winter", "Summer"], correct: 1 },
+                { type: "logic", question: "If I have 3 ⭐ and get 2 more, how many total?", options: ["3", "4", "5", "6"], correct: 2 },
+                { type: "logic", question: "Which needs water to grow? 🌱 or 🪨", options: ["🌱", "🪨", "Both", "Neither"], correct: 0 },
+                { type: "logic", question: "What comes before night?", options: ["Morning", "Afternoon", "Evening", "Midnight"], correct: 2 },
+                { type: "logic", question: "If I take away 1 from 5 🍎, how many left?", options: ["3", "4", "5", "6"], correct: 1 },
+                { type: "logic", question: "Which can fly? 🐦 or 🐠", options: ["🐦", "🐠", "Both", "Neither"], correct: 0 },
+                { type: "logic", question: "What day comes after Monday?", options: ["Sunday", "Tuesday", "Wednesday", "Thursday"], correct: 1 },
+                { type: "logic", question: "If a cake is cut into 4 pieces, how many pieces?", options: ["2", "3", "4", "5"], correct: 2 },
+                { type: "logic", question: "Which is faster? 🐆 or 🐢", options: ["🐆", "🐢", "Same", "Can't tell"], correct: 0 },
+                { type: "logic", question: "What month comes after June?", options: ["May", "July", "August", "September"], correct: 1 },
+                { type: "logic", question: "If I have 2 hands and you have 2, how many total?", options: ["2", "3", "4", "5"], correct: 2 },
+                { type: "logic", question: "Which lives in water? 🐠 or 🐕", options: ["🐠", "🐕", "Both", "Neither"], correct: 0 },
+                { type: "logic", question: "How many wheels does a bike have?", options: ["1", "2", "3", "4"], correct: 1 },
+                { type: "logic", question: "Which is taller? 🌳 or 🌼", options: ["🌳", "🌼", "Same", "Can't tell"], correct: 0 },
+                { type: "logic", question: "If today is Wednesday, what was yesterday?", options: ["Monday", "Tuesday", "Thursday", "Friday"], correct: 1 }
+            ];
+        }
+
+        function generateComparisonLessons() {
+            return [
+                { type: "compare", question: "Which is longer? 🚂🚂🚂 or 🚗", options: ["🚂🚂🚂", "🚗", "Same", "Can't tell"], correct: 0 },
+                { type: "compare", question: "Which group has more? 🍎🍎🍎 or 🍊🍊", options: ["🍎", "🍊", "Same", "Can't tell"], correct: 0 },
+                { type: "compare", question: "Which is bigger? 🏀 or ⚾", options: ["🏀", "⚾", "Same", "Can't tell"], correct: 0 },
+                { type: "compare", question: "Which is smaller? 🐘 or 🐁", options: ["🐘", "🐁", "Same", "Can't tell"], correct: 1 },
+                { type: "compare", question: "Which group has less? ⭐⭐ or ⭐⭐⭐⭐", options: ["⭐⭐", "⭐⭐⭐⭐", "Same", "Can't tell"], correct: 0 },
+                { type: "compare", question: "Which is taller? 🌳 or 🌷", options: ["🌳", "🌷", "Same", "Can't tell"], correct: 0 },
+                { type: "compare", question: "Which is wider? 🚗 or 🚲", options: ["🚗", "🚲", "Same", "Can't tell"], correct: 0 },
+                { type: "compare", question: "More flowers? 🌸🌸🌸 or 🌺🌺", options: ["🌸", "🌺", "Same", "Can't tell"], correct: 0 },
+                { type: "compare", question: "Which is shorter? 🦒 or 🐕", options: ["🦒", "🐕", "Same", "Can't tell"], correct: 1 },
+                { type: "compare", question: "Which group is bigger? 🔵🔵 or 🔴🔴🔴", options: ["🔵", "🔴", "Same", "Can't tell"], correct: 1 },
+                { type: "compare", question: "Which is heavier? 📚📚📚 or 📄", options: ["📚📚📚", "📄", "Same", "Can't tell"], correct: 0 },
+                { type: "compare", question: "More stars? ⭐⭐⭐⭐ or 🌟🌟🌟", options: ["⭐", "🌟", "Same", "Can't tell"], correct: 0 },
+                { type: "compare", question: "Which is longer? 🐍🐍 or 🐛", options: ["🐍🐍", "🐛", "Same", "Can't tell"], correct: 0 },
+                { type: "compare", question: "Fewer items? 🍪🍪 or 🍪🍪🍪🍪", options: ["🍪🍪", "🍪🍪🍪🍪", "Same", "Can't tell"], correct: 0 },
+                { type: "compare", question: "Which is faster? 🚀 or 🚗", options: ["🚀", "🚗", "Same", "Can't tell"], correct: 0 },
+                { type: "compare", question: "More balloons? 🎈🎈🎈🎈🎈 or 🎈🎈🎈", options: ["First", "Second", "Same", "Can't tell"], correct: 0 },
+                { type: "compare", question: "Which is lighter? 🪶 or 🧱", options: ["🪶", "🧱", "Same", "Can't tell"], correct: 0 },
+                { type: "compare", question: "Which group has more? 🌟🌟 or 🌟🌟🌟🌟🌟", options: ["First", "Second", "Same", "Can't tell"], correct: 1 },
+                { type: "compare", question: "Which is slower? 🐌 or 🐆", options: ["🐌", "🐆", "Same", "Can't tell"], correct: 0 },
+                { type: "compare", question: "More circles? ⭕⭕⭕⭕ or ⭕⭕⭕⭕⭕⭕", options: ["First", "Second", "Same", "Can't tell"], correct: 1 }
+            ];
+        }
+
+        function generatePositionLessons() {
+            return [
+                { type: "position", question: "What is above the ⭐?", visual: "☀️\n⭐\n🌙", options: ["☀️", "⭐", "🌙", "Nothing"], correct: 0 },
+                { type: "position", question: "What is below the 🐦?", visual: "🐦\n🌳\n🌼", options: ["🐦", "🌳", "🌼", "Nothing"], correct: 1 },
+                { type: "position", question: "What's between 🍎 and 🍊?", visual: "🍎 🍋 🍊", options: ["🍎", "🍋", "🍊", "Nothing"], correct: 1 },
+                { type: "position", question: "What is on the left?", visual: "🚗 🏠 🌳", options: ["🚗", "🏠", "🌳", "Nothing"], correct: 0 },
+                { type: "position", question: "What is on the right?", visual: "🎨 ✏️ 📏", options: ["🎨", "✏️", "📏", "Nothing"], correct: 2 },
+                { type: "position", question: "What is under the ☁️?", visual: "☁️\n🌈\n🌍", options: ["☁️", "🌈", "🌍", "Nothing"], correct: 1 },
+                { type: "position", question: "What's in the middle?", visual: "🔴 🔵 🟡", options: ["🔴", "🔵", "🟡", "Nothing"], correct: 1 },
+                { type: "position", question: "What is at the top?", visual: "⭐\n🌙\n☀️", options: ["⭐", "🌙", "☀️", "Nothing"], correct: 0 },
+                { type: "position", question: "What's at the bottom?", visual: "🎈\n🎁\n🎉", options: ["🎈", "🎁", "🎉", "Nothing"], correct: 2 },
+                { type: "position", question: "What's next to the 🏠?", visual: "🌳 🏠 🚗", options: ["🌳", "🏠", "🚗", "Both"], correct: 3 },
+                { type: "position", question: "What is over the 🌊?", visual: "☁️\n🌊\n🐠", options: ["☁️", "🌊", "🐠", "Nothing"], correct: 0 },
+                { type: "position", question: "What comes first?", visual: "1️⃣ 2️⃣ 3️⃣", options: ["1️⃣", "2️⃣", "3️⃣", "None"], correct: 0 },
+                { type: "position", question: "What comes last?", visual: "🥇 🥈 🥉", options: ["🥇", "🥈", "🥉", "None"], correct: 2 },
+                { type: "position", question: "What's behind the 🐕?", visual: "🏠 🐕 🦴", options: ["🏠", "🐕", "🦴", "Nothing"], correct: 0 },
+                { type: "position", question: "What's in front of the 🌳?", visual: "🌳 🌼 🦋", options: ["🌳", "🌼", "🦋", "Nothing"], correct: 1 },
+                { type: "position", question: "Which is leftmost?", visual: "🎵 🎶 🎼", options: ["🎵", "🎶", "🎼", "None"], correct: 0 },
+                { type: "position", question: "Which is rightmost?", visual: "📚 📖 📝", options: ["📚", "📖", "📝", "None"], correct: 2 },
+                { type: "position", question: "What's beside the ⭐?", visual: "💫 ⭐ ✨", options: ["💫", "⭐", "✨", "Both"], correct: 3 },
+                { type: "position", question: "What's at the start?", visual: "🏁 🏃 🎯", options: ["🏁", "🏃", "🎯", "None"], correct: 0 },
+                { type: "position", question: "What's at the end?", visual: "🚦 🚗 🏁", options: ["🚦", "🚗", "🏁", "None"], correct: 2 }
+            ];
+        }
+
+        function generateWordLessons() {
+            return [
+                { type: "word", question: "Which word means the opposite of 'hot'?", options: ["Warm", "Cold", "Cool", "Freezing"], correct: 1 },
+                { type: "word", question: "Which goes with 'cup'?", options: ["Plate", "Saucer", "Bowl", "Spoon"], correct: 1 },
+                { type: "word", question: "What do you use to write?", options: ["Book", "Pen", "Paper", "Table"], correct: 1 },
+                { type: "word", question: "Opposite of 'big'?", options: ["Large", "Huge", "Small", "Tiny"], correct: 2 },
+                { type: "word", question: "What do you sit on?", options: ["Table", "Chair", "Floor", "Bed"], correct: 1 },
+                { type: "word", question: "Which is a fruit?", options: ["Carrot", "Apple", "Potato", "Lettuce"], correct: 1 },
+                { type: "word", question: "Opposite of 'happy'?", options: ["Joyful", "Sad", "Glad", "Cheerful"], correct: 1 },
+                { type: "word", question: "What tells time?", options: ["Calendar", "Clock", "Watch", "Timer"], correct: 1 },
+                { type: "word", question: "Which is a color?", options: ["Square", "Blue", "Soft", "Round"], correct: 1 },
+                { type: "word", question: "Opposite of 'up'?", options: ["Top", "Down", "High", "Above"], correct: 1 },
+                { type: "word", question: "What do you wear on your feet?", options: ["Hat", "Shoes", "Gloves", "Shirt"], correct: 1 },
+                { type: "word", question: "Which is an animal?", options: ["Tree", "Dog", "Flower", "Rock"], correct: 1 },
+                { type: "word", question: "Opposite of 'fast'?", options: ["Quick", "Slow", "Speedy", "Swift"], correct: 1 },
+                { type: "word", question: "What do you eat with?", options: ["Knife", "Spoon", "Cup", "Plate"], correct: 1 },
+                { type: "word", question: "Which is a shape?", options: ["Red", "Big", "Circle", "Soft"], correct: 2 },
+                { type: "word", question: "Opposite of 'day'?", options: ["Morning", "Night", "Evening", "Noon"], correct: 1 },
+                { type: "word", question: "Where do you sleep?", options: ["Chair", "Bed", "Table", "Floor"], correct: 1 },
+                { type: "word", question: "Which is a number?", options: ["Letter", "Five", "Word", "Color"], correct: 1 },
+                { type: "word", question: "Opposite of 'old'?", options: ["Ancient", "Young", "Aged", "Elder"], correct: 1 },
+                { type: "word", question: "What do you drink from?", options: ["Plate", "Cup", "Fork", "Spoon"], correct: 1 }
+            ];
+        }
+
+        function generateAdvancedLessons() {
+            return [
+                { type: "advanced", question: "If A=1, B=2, what is C?", options: ["1", "2", "3", "4"], correct: 2 },
+                { type: "advanced", question: "Complete: 🔴🔴🔵 🔴🔴🔵 __", options: ["🔴🔴🔵", "🔵🔵🔴", "🔴🔵🔴", "🔵🔴🔴"], correct: 0 },
+                { type: "advanced", question: "Which doesn't fit the rule: All are round", options: ["⚽", "🎾", "🏀", "🔺"], correct: 3 },
+                { type: "advanced", question: "Pattern: A B C, D E F, G H __", options: ["G", "H", "I", "J"], correct: 2 },
+                { type: "advanced", question: "If 🍎=2 and 🍊=3, what is 🍎+🍊?", options: ["4", "5", "6", "7"], correct: 1 },
+                { type: "advanced", question: "Continue: 1,1,2,3,5,__", options: ["6", "7", "8", "9"], correct: 2 },
+                { type: "advanced", question: "Which breaks the pattern: 🔵🔴🔵🔴🟡", options: ["1st", "2nd", "3rd", "5th"], correct: 3 },
+                { type: "advanced", question: "If all 🐕 are 🐾, are all 🐾 dogs?", options: ["Yes", "No", "Maybe", "Always"], correct: 1 },
+                { type: "advanced", question: "Complete: 2,4,8,16,__", options: ["20", "24", "32", "40"], correct: 2 },
+                { type: "advanced", question: "Which is next: ⬜⬛⬜⬜⬛⬛⬜⬜⬜__", options: ["⬜", "⬛", "🟥", "🟦"], correct: 1 },
+                { type: "advanced", question: "If today is Day 3, what was 2 days ago?", options: ["Day 0", "Day 1", "Day 2", "Day 4"], correct: 1 },
+                { type: "advanced", question: "Pattern: AB, BC, CD, __", options: ["DD", "DE", "EF", "DC"], correct: 1 },
+                { type: "advanced", question: "If 🌟=5 and ⭐=3, what is 🌟-⭐?", options: ["1", "2", "3", "4"], correct: 1 },
+                { type: "advanced", question: "Continue: Z, Y, X, W, __", options: ["U", "V", "W", "X"], correct: 1 },
+                { type: "advanced", question: "Which completes: 🔴🔵🟡, 🔵🟡🟢, 🟡🟢__", options: ["🔴", "🟣", "🟠", "⚪"], correct: 1 },
+                { type: "advanced", question: "If A→B→C, then 1→2→__", options: ["1", "2", "3", "4"], correct: 2 },
+                { type: "advanced", question: "Pattern: 10,9,11,10,12,__", options: ["10", "11", "12", "13"], correct: 1 },
+                { type: "advanced", question: "Which is different: All can fly except", options: ["🐦", "🦋", "✈️", "🐟"], correct: 3 },
+                { type: "advanced", question: "If ⬜=1 and ⬛=2, what is ⬜⬛⬜?", options: ["3", "4", "5", "6"], correct: 1 },
+                { type: "advanced", question: "Complete: Sun Mon Tue Wed __", options: ["Thu", "Fri", "Sat", "Sun"], correct: 0 }
+            ];
+        }
+
+        let currentModule = null;
+        let currentLesson = 0;
+        let completedModules = JSON.parse(localStorage.getItem('completedModules') || '[]');
+        let moduleProgress = JSON.parse(localStorage.getItem('moduleProgress') || '{}');
+        let totalCorrect = parseInt(localStorage.getItem('totalCorrect') || '0');
+        let totalAttempted = parseInt(localStorage.getItem('totalAttempted') || '0');
+        let score = 0;
+
+        function initApp() {
+            renderModules();
+            updateProgress();
+            updateStats();
+        }
+
+        function renderModules() {
+            const grid = document.getElementById('module-grid');
+            grid.innerHTML = '';
+
+            modules.forEach((module, index) => {
+                const isCompleted = completedModules.includes(module.id);
+                const isLocked = index > 0 && !completedModules.includes(modules[index - 1].id);
+                const progress = moduleProgress[module.id] || 0;
+                
+                const card = document.createElement('div');
+                card.className = `module-card ${isCompleted ? 'completed' : ''} ${isLocked ? 'locked' : ''}`;
+                
+                card.innerHTML = `
+                    <div class="module-content">
+                        <div class="module-icon">${module.icon}</div>
+                        <div class="module-number">Module ${module.id}</div>
+                        <div class="module-title">${module.title}</div>
+                        <div class="module-desc">${module.description}</div>
+                        ${!isLocked ? `
+                            <div class="module-progress">
+                                <div class="module-progress-bar" style="width: ${progress}%"></div>
+                            </div>
+                        ` : '<div style="margin-top: 15px; font-weight: 600;">🔒 Complete previous module to unlock</div>'}
+                    </div>
+                `;
+
+                if (!isLocked) {
+                    card.onclick = () => startModule(module);
+                }
+
+                grid.appendChild(card);
+            });
+        }
+
+        function startModule(module) {
+            currentModule = module;
+            currentLesson = 0;
+            score = 0;
+            document.getElementById('main-menu').style.display = 'none';
+            document.getElementById('lesson-area').classList.add('active');
+            document.getElementById('lesson-title').innerHTML = module.icon + ' ' + module.title;
+            document.getElementById('lesson-subtitle').textContent = module.description;
+            showQuestion();
+        }
+
+        function showQuestion() {
+            const lesson = currentModule.lessons[currentLesson];
+            const questionArea = document.getElementById('question-area');
+            
+            updateLessonBadges();
+            
+            let html = '<div class="question-container">';
+            html += `<span class="question-number">Question ${currentLesson + 1} of ${currentModule.lessons.length}</span>`;
+            html += `<div class="question-text">${lesson.question}</div>`;
+
+            if (lesson.pattern) {
+                html += '<div class="visual-area"><div class="pattern-display">';
+                lesson.pattern.forEach((item, idx) => {
+                    const isQuestionMark = item === '?';
+                    html += `<div class="pattern-item ${isQuestionMark ? 'question-mark' : ''}">${item}</div>`;
+                });
+                html += '</div></div>';
+            }
+
+            if (lesson.visual) {
+                html += `<div class="visual-area"><div style="font-size: 3em; text-align: center; line-height: 1.5; white-space: pre;">${lesson.visual}</div></div>`;
+            }
+
+            html += '<div class="options-grid">';
+            lesson.options.forEach((option, index) => {
+                html += `<button class="option-btn" onclick="checkAnswer(${index})">${option}</button>`;
+            });
+            html += '</div>';
+
+            if (lesson.hint) {
+                html += `<div class="hint-box" id="hint-box"><span class="hint-icon">💡</span>${lesson.hint}</div>`;
+            }
+
+            html += '<div class="feedback" id="feedback"></div>';
+            html += '</div>';
+
+            questionArea.innerHTML = html;
+            document.getElementById('next-btn').style.display = 'none';
+        }
+
+        function checkAnswer(selected) {
+            const lesson = currentModule.lessons[currentLesson];
+            const buttons = document.querySelectorAll('.option-btn');
+            const feedback = document.getElementById('feedback');
+            
+            totalAttempted++;
+            
+            buttons.forEach((btn, index) => {
+                btn.disabled = true;
+                if (index === lesson.correct) {
+                    btn.classList.add('correct');
+                } else if (index === selected) {
+                    btn.classList.add('incorrect');
+                }
+            });
+
+            if (selected === lesson.correct) {
+                feedback.className = 'feedback correct';
+                feedback.innerHTML = '<span class="feedback-icon">🎉</span>Fantastic! You got it right!<div class="stars">⭐⭐⭐</div>';
+                score++;
+                totalCorrect++;
+            } else {
+                feedback.className = 'feedback incorrect';
+                feedback.innerHTML = '<span class="feedback-icon">💪</span>Good try! Keep learning!';
+                
+                // Show hint if available
+                if (lesson.hint) {
+                    document.getElementById('hint-box')?.classList.add('show');
+                }
+            }
+            
+            localStorage.setItem('totalCorrect', totalCorrect.toString());
+            localStorage.setItem('totalAttempted', totalAttempted.toString());
+            
+            feedback.style.display = 'block';
+            document.getElementById('next-btn').style.display = 'inline-block';
+        }
+
+        function nextQuestion() {
+            currentLesson++;
+            
+            // Update module progress
+            const progress = Math.round((currentLesson / currentModule.lessons.length) * 100);
+            moduleProgress[currentModule.id] = progress;
+            localStorage.setItem('moduleProgress', JSON.stringify(moduleProgress));
+            
+            if (currentLesson >= currentModule.lessons.length) {
+                showCompletion();
+            } else {
+                showQuestion();
+            }
+        }
+
+        function showCompletion() {
+            const questionArea = document.getElementById('question-area');
+            const percentage = Math.round((score / currentModule.lessons.length) * 100);
+            
+            if (!completedModules.includes(currentModule.id)) {
+                completedModules.push(currentModule.id);
+                localStorage.setItem('completedModules', JSON.stringify(completedModules));
+            }
+
+            let message = '';
+            let emoji = '';
+            if (percentage >= 90) {
+                message = 'Outstanding! You\'re a superstar!';
+                emoji = '🌟🎊🎉';
+            } else if (percentage >= 75) {
+                message = 'Excellent work! Keep it up!';
+                emoji = '🎉⭐✨';
+            } else if (percentage >= 60) {
+                message = 'Great job! You\'re learning!';
+                emoji = '👏💪🌈';
+            } else {
+                message = 'Good effort! Try again to improve!';
+                emoji = '💪🎯📚';
+            }
+
+            questionArea.innerHTML = `
+                <div class="celebration active">
+                    <h2>${emoji}</h2>
+                    <h2>${message}</h2>
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <div class="score-display">Score: ${score} out of ${currentModule.lessons.length}</div>
+                    <span class="percentage">${percentage}%</span>
+                    <p style="font-size: 1.3em; margin-top: 20px; color: #666;">
+                        ${percentage >= 75 ? 'Ready for the next challenge!' : 'Practice makes perfect!'}
+                    </p>
+                </div>
+            `;
+
+            document.getElementById('next-btn').style.display = 'none';
+            updateProgress();
+            updateStats();
+        }
+
+        function updateLessonBadges() {
+            document.getElementById('lesson-progress-badge').textContent = 
+                `Lesson ${currentLesson + 1}/${currentModule.lessons.length}`;
+            document.getElementById('lesson-score-badge').textContent = 
+                `Score: ${score}/${currentLesson}`;
+        }
+
+        function backToMenu() {
+            document.getElementById('main-menu').style.display = 'block';
+            document.getElementById('lesson-area').classList.remove('active');
+            renderModules();
+            updateProgress();
+            updateStats();
+        }
+
+        function updateProgress() {
+            const progress = (completedModules.length / modules.length) * 100;
+            document.getElementById('progress-bar').style.width = progress + '%';
+            document.getElementById('progress-text').textContent = Math.round(progress) + '%';
+            document.getElementById('progress-label').textContent = Math.round(progress) + '%';
+        }
+
+        function updateStats() {
+            document.getElementById('modules-completed').textContent = completedModules.length;
+            
+            let totalLessons = 0;
+            completedModules.forEach(modId => {
+                const mod = modules.find(m => m.id === modId);
+                if (mod) totalLessons += mod.lessons.length;
+            });
+            document.getElementById('total-lessons').textContent = totalLessons;
+            
+            const accuracy = totalAttempted > 0 ? Math.round((totalCorrect / totalAttempted) * 100) : 0;
+            document.getElementById('accuracy-rate').textContent = accuracy + '%';
+        }
+
+        // Initialize the app
+        initApp();
+    </script>
+</body>
+</html>
