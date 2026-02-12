@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🤖 AI Adventure for Kids | Learn About Artificial Intelligence!</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Fredoka', sans-serif;
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 30px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        nav {
+            position: relative;
+            z-index: 10;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 25px;
+            padding: 15px 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .nav-logo span:first-child {
+            font-size: 2em;
+        }
+
+        .nav-logo span:last-child {
+            color: white;
+            font-weight: 700;
+            font-size: 1.3em;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 10px 20px;
+            border-radius: 20px;
+            transition: all 0.3s;
+        }
+
+        .nav-links a:hover {
+            background: rgba(255,255,255,0.2);
+        }
+
+        .nav-links a.active {
+            background: rgba(255,255,255,0.3);
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .header h1 {
+            font-size: 3em;
+            background: linear-gradient(45deg, #a8edea, #fed6e3);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+        }
+
+        .intro-section {
+            background: linear-gradient(135deg, #e0f7fa 0%, #e1bee7 100%);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 40px;
+            border: 3px solid #a8edea;
+        }
+
+        .intro-section h2 {
+            color: #667eea;
+            margin-bottom: 15px;
+        }
+
+        .activity-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+
+        .activity-card {
+            background: linear-gradient(135deg, #f5f7fa 0%, #e8ecf1 100%);
+            border-radius: 20px;
+            padding: 30px;
+            cursor: pointer;
+            transition: transform 0.3s;
+            border: 3px solid transparent;
+        }
+
+        .activity-card:hover {
+            transform: translateY(-5px);
+            border-color: #a8edea;
+            box-shadow: 0 10px 30px rgba(168, 237, 234, 0.4);
+        }
+
+        .activity-icon {
+            font-size: 4em;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+
+        .activity-title {
+            font-size: 1.8em;
+            color: #333;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .activity-desc {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .start-btn {
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+            color: #333;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 25px;
+            font-weight: 700;
+            cursor: pointer;
+            font-size: 1.1em;
+            transition: all 0.3s;
+        }
+
+        .start-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(168, 237, 234, 0.5);
+        }
+
+        .ai-playground {
+            display: none;
+            background: linear-gradient(135deg, #e8f5e9 0%, #fff9c4 100%);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 30px;
+            border: 3px solid #a8edea;
+        }
+
+        .ai-playground.active {
+            display: block;
+        }
+
+        .playground-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .playground-title {
+            color: #667eea;
+            font-size: 1.8em;
+            font-weight: 700;
+        }
+
+        .close-btn {
+            background: #ff6b6b;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: 700;
+        }
+
+        .interaction-area {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            min-height: 300px;
+            margin-bottom: 20px;
+        }
+
+        .image-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .image-item {
+            text-align: center;
+            padding: 20px;
+            background: #f5f7fa;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: 3px solid transparent;
+        }
+
+        .image-item:hover {
+            transform: scale(1.05);
+            border-color: #a8edea;
+        }
+
+        .image-item.selected {
+            border-color: #4caf50;
+            background: #e8f5e9;
+        }
+
+        .emoji-large {
+            font-size: 5em;
+        }
+
+        .result-box {
+            background: linear-gradient(135deg, #e1f5fe 0%, #f3e5f5 100%);
+            border-radius: 15px;
+            padding: 20px;
+            margin-top: 20px;
+            border: 3px solid #a8edea;
+        }
+
+        .chat-box {
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            min-height: 300px;
+            max-height: 400px;
+            overflow-y: auto;
+            margin-bottom: 20px;
+            border: 2px solid #e0e0e0;
+        }
+
+        .chat-message {
+            margin-bottom: 15px;
+            padding: 15px;
+            border-radius: 15px;
+            max-width: 80%;
+        }
+
+        .chat-message.user {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            margin-left: auto;
+        }
+
+        .chat-message.ai {
+            background: #f5f7fa;
+            color: #333;
+        }
+
+        .input-area {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .chat-input {
+            flex: 1;
+            padding: 15px;
+            border-radius: 25px;
+            border: 2px solid #e0e0e0;
+            font-size: 1em;
+            font-family: 'Fredoka', sans-serif;
+        }
+
+        .send-btn {
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+            border: none;
+            padding: 15px 30px;
+            border-radius: 25px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .send-btn:hover {
+            transform: scale(1.05);
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 2em;
+            }
+
+            .activity-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Navigation -->
+        <nav>
+            <div class="nav-content">
+                <div class="nav-logo">
+                    <span>🌟</span>
+                    <span>Learning Adventure</span>
+                </div>
+                <div class="nav-links">
+                    <a href="index.html">🏠 CogAT Prep</a>
+                    <a href="coding-basics.html">💻 Coding Basics</a>
+                    <a href="ai-adventure.html" class="active">🤖 AI Adventure</a>
+                    <a href="creative-coding.html">🎨 Creative Coding</a>
+                    <a href="privacy.html">🔒 Privacy</a>
+                </div>
+            </div>
+        </nav>
+
+        <div class="header">
+            <h1>🤖 AI Adventure</h1>
+            <p style="font-size: 1.3em; color: #666;">Discover the magic of Artificial Intelligence!</p>
+        </div>
+
+        <div class="intro-section">
+            <h2>🌈 What is AI (Artificial Intelligence)?</h2>
+            <p style="line-height: 1.8; color: #444; font-size: 1.1em;">
+                AI is like giving computers a super-smart brain! 🧠 Just like you learn to recognize animals, colors, 
+                and numbers, AI learns to understand pictures, words, and patterns. It's like having a robot friend 
+                who gets smarter every day by learning from examples!
+            </p>
+        </div>
+
+        <div id="activities-section">
+            <div class="activity-grid">
+                <div class="activity-card">
+                    <div class="activity-icon">🖼️</div>
+                    <h2 class="activity-title">Image Recognition</h2>
+                    <p class="activity-desc">Teach AI to recognize different things - just like teaching a friend!</p>
+                    <button class="start-btn" onclick="startImageActivity()">Start Teaching!</button>
+                </div>
+
+                <div class="activity-card">
+                    <div class="activity-icon">💬</div>
+                    <h2 class="activity-title">Chat with AI</h2>
+                    <p class="activity-desc">Talk to an AI friend and see how it understands and responds!</p>
+                    <button class="start-btn" onclick="startChatActivity()">Start Chatting!</button>
+                </div>
+
+                <div class="activity-card">
+                    <div class="activity-icon">🎵</div>
+                    <h2 class="activity-title">Pattern Finder</h2>
+                    <p class="activity-desc">Help AI find patterns in music, colors, and shapes!</p>
+                    <button class="start-btn" onclick="startPatternActivity()">Find Patterns!</button>
+                </div>
+
+                <div class="activity-card">
+                    <div class="activity-icon">🔮</div>
+                    <h2 class="activity-title">AI Predictions</h2>
+                    <p class="activity-desc">See how AI predicts what comes next, just like magic!</p>
+                    <button class="start-btn" onclick="startPredictionActivity()">Make Predictions!</button>
+                </div>
+
+                <div class="activity-card">
+                    <div class="activity-icon">🎨</div>
+                    <h2 class="activity-title">AI Artist</h2>
+                    <p class="activity-desc">Watch AI create art and learn about creative AI!</p>
+                    <button class="start-btn" onclick="startArtActivity()">Create Art!</button>
+                </div>
+
+                <div class="activity-card">
+                    <div class="activity-icon">🎯</div>
+                    <h2 class="activity-title">Smart Games</h2>
+                    <p class="activity-desc">Play games where AI learns from your moves!</p>
+                    <button class="start-btn" onclick="startGameActivity()">Play Games!</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Image Recognition Playground -->
+        <div id="image-playground" class="ai-playground">
+            <div class="playground-header">
+                <h2 class="playground-title">🖼️ Teach AI to Recognize Images</h2>
+                <button class="close-btn" onclick="closeActivity()">✖ Close</button>
+            </div>
+
+            <div class="interaction-area">
+                <h3 style="color: #667eea; margin-bottom: 15px;">Select different items to train the AI:</h3>
+                
+                <div class="image-grid" id="image-grid">
+                    <div class="image-item" onclick="selectImage('dog', this)">
+                        <div class="emoji-large">🐕</div>
+                        <p style="font-weight: 700; margin-top: 10px;">Dog</p>
+                    </div>
+                    <div class="image-item" onclick="selectImage('cat', this)">
+                        <div class="emoji-large">🐱</div>
+                        <p style="font-weight: 700; margin-top: 10px;">Cat</p>
+                    </div>
+                    <div class="image-item" onclick="selectImage('car', this)">
+                        <div class="emoji-large">🚗</div>
+                        <p style="font-weight: 700; margin-top: 10px;">Car</p>
+                    </div>
+                    <div class="image-item" onclick="selectImage('tree', this)">
+                        <div class="emoji-large">🌳</div>
+                        <p style="font-weight: 700; margin-top: 10px;">Tree</p>
+                    </div>
+                    <div class="image-item" onclick="selectImage('house', this)">
+                        <div class="emoji-large">🏠</div>
+                        <p style="font-weight: 700; margin-top: 10px;">House</p>
+                    </div>
+                    <div class="image-item" onclick="selectImage('flower', this)">
+                        <div class="emoji-large">🌸</div>
+                        <p style="font-weight: 700; margin-top: 10px;">Flower</p>
+                    </div>
+                </div>
+
+                <div class="result-box" id="result-box" style="display: none;">
+                    <h3 style="color: #4caf50; margin-bottom: 10px;">🎉 AI Learning Result:</h3>
+                    <p id="recognition-result" style="font-size: 1.2em; font-weight: 700;"></p>
+                    <p style="margin-top: 10px; color: #666;">The AI learned this by looking at many examples!</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Chat Playground -->
+        <div id="chat-playground" class="ai-playground">
+            <div class="playground-header">
+                <h2 class="playground-title">💬 Chat with AI Friend</h2>
+                <button class="close-btn" onclick="closeActivity()">✖ Close</button>
+            </div>
+
+            <div class="interaction-area">
+                <h3 style="color: #667eea; margin-bottom: 15px;">Ask the AI anything!</h3>
+                
+                <div class="chat-box" id="chat-box">
+                    <div class="chat-message ai">
+                        <strong>AI Friend:</strong> Hi! I'm an AI learning buddy. Ask me questions or just chat! 🤖
+                    </div>
+                </div>
+
+                <div class="input-area">
+                    <input type="text" class="chat-input" id="chat-input" placeholder="Type your message here..." onkeypress="if(event.key==='Enter') sendMessage()">
+                    <button class="send-btn" onclick="sendMessage()">Send 📤</button>
+                </div>
+
+                <div style="margin-top: 15px; padding: 15px; background: #fff9c4; border-radius: 15px;">
+                    <strong>💡 Try asking:</strong>
+                    <ul style="margin-top: 10px; padding-left: 20px;">
+                        <li>What is your favorite color?</li>
+                        <li>Tell me a fun fact!</li>
+                        <li>What animals live in the ocean?</li>
+                        <li>Can you count to 10?</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pattern Finder Playground -->
+        <div id="pattern-playground" class="ai-playground">
+            <div class="playground-header">
+                <h2 class="playground-title">🎵 AI Pattern Finder</h2>
+                <button class="close-btn" onclick="closeActivity()">✖ Close</button>
+            </div>
+
+            <div class="interaction-area">
+                <h3 style="color: #667eea; margin-bottom: 15px;">Create a pattern and let AI find it!</h3>
+                
+                <div style="display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 20px; justify-content: center;" id="pattern-sequence"></div>
+
+                <div style="display: flex; gap: 10px; justify-content: center; margin-bottom: 20px;">
+                    <button class="start-btn" onclick="addToPattern('🔴')">🔴 Red</button>
+                    <button class="start-btn" onclick="addToPattern('🔵')">🔵 Blue</button>
+                    <button class="start-btn" onclick="addToPattern('🟡')">🟡 Yellow</button>
+                    <button class="start-btn" onclick="addToPattern('🟢')">🟢 Green</button>
+                    <button class="start-btn" onclick="clearPattern()">🗑️ Clear</button>
+                </div>
+
+                <button class="start-btn" style="display: block; margin: 0 auto; padding: 15px 40px; font-size: 1.2em;" onclick="analyzePattern()">
+                    🔍 Let AI Find Pattern!
+                </button>
+
+                <div class="result-box" id="pattern-result" style="display: none; margin-top: 20px;">
+                    <h3 style="color: #4caf50; margin-bottom: 10px;">🤖 AI Found a Pattern:</h3>
+                    <p id="pattern-text" style="font-size: 1.2em; font-weight: 700;"></p>
+                </div>
+            </div>
+        </div>
+
+        <footer style="text-align: center; margin-top: 40px; padding: 20px; color: #666;">
+            <p>© 2026 Learning Adventure | <a href="privacy.html" style="color: #667eea;">Privacy Policy</a></p>
+        </footer>
+    </div>
+
+    <script>
+        let trainingData = 0;
+        let currentPattern = [];
+        
+        const aiResponses = {
+            "hello": "Hello! I'm so happy to talk with you! 😊",
+            "how are you": "I'm doing great! Thanks for asking. How are you? 🤖",
+            "what is your name": "I'm AI Friend, your learning buddy! What's your name? 🌟",
+            "color": "I love all colors! Red, blue, yellow, green - they're all beautiful! 🌈",
+            "count": "Sure! 1, 2, 3, 4, 5, 6, 7, 8, 9, 10! 🔢",
+            "ocean": "The ocean has dolphins 🐬, whales 🐋, fish 🐠, and octopuses 🐙!",
+            "fact": "Did you know? A group of flamingos is called a 'flamboyance'! 🦩",
+            "default": "That's interesting! I'm still learning. Can you teach me more? 🤔"
+        };
+
+        function startImageActivity() {
+            document.getElementById('activities-section').style.display = 'none';
+            document.getElementById('image-playground').classList.add('active');
+        }
+
+        function startChatActivity() {
+            document.getElementById('activities-section').style.display = 'none';
+            document.getElementById('chat-playground').classList.add('active');
+        }
+
+        function startPatternActivity() {
+            document.getElementById('activities-section').style.display = 'none';
+            document.getElementById('pattern-playground').classList.add('active');
+        }
+
+        function startPredictionActivity() {
+            alert('🔮 AI Predictions coming soon! The AI will learn to predict patterns!');
+        }
+
+        function startArtActivity() {
+            alert('🎨 AI Artist coming soon! Watch AI create amazing artwork!');
+        }
+
+        function startGameActivity() {
+            alert('🎯 Smart Games coming soon! Play games where AI learns from you!');
+        }
+
+        function closeActivity() {
+            document.querySelectorAll('.ai-playground').forEach(p => p.classList.remove('active'));
+            document.getElementById('activities-section').style.display = 'block';
+        }
+
+        function selectImage(type, element) {
+            document.querySelectorAll('.image-item').forEach(item => item.classList.remove('selected'));
+            element.classList.add('selected');
+            trainingData++;
+            
+            document.getElementById('result-box').style.display = 'block';
+            document.getElementById('recognition-result').textContent = 
+                `Great! I see a ${type}! I've learned from ${trainingData} examples so far.`;
+        }
+
+        function sendMessage() {
+            const input = document.getElementById('chat-input');
+            const message = input.value.trim().toLowerCase();
+            
+            if (!message) return;
+            
+            const chatBox = document.getElementById('chat-box');
+            
+            // Add user message
+            const userMsg = document.createElement('div');
+            userMsg.className = 'chat-message user';
+            userMsg.innerHTML = `<strong>You:</strong> ${input.value}`;
+            chatBox.appendChild(userMsg);
+            
+            // Get AI response
+            let response = aiResponses.default;
+            for (let key in aiResponses) {
+                if (message.includes(key)) {
+                    response = aiResponses[key];
+                    break;
+                }
+            }
+            
+            // Add AI response with delay
+            setTimeout(() => {
+                const aiMsg = document.createElement('div');
+                aiMsg.className = 'chat-message ai';
+                aiMsg.innerHTML = `<strong>AI Friend:</strong> ${response}`;
+                chatBox.appendChild(aiMsg);
+                chatBox.scrollTop = chatBox.scrollHeight;
+            }, 800);
+            
+            input.value = '';
+            chatBox.scrollTop = chatBox.scrollHeight;
+        }
+
+        function addToPattern(color) {
+            currentPattern.push(color);
+            renderPattern();
+        }
+
+        function clearPattern() {
+            currentPattern = [];
+            renderPattern();
+            document.getElementById('pattern-result').style.display = 'none';
+        }
+
+        function renderPattern() {
+            const container = document.getElementById('pattern-sequence');
+            container.innerHTML = currentPattern.map(color => 
+                `<div style="font-size: 3em; width: 60px; height: 60px; display: flex; align-items: center; justify-content: center; background: white; border-radius: 15px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">${color}</div>`
+            ).join('');
+        }
+
+        function analyzePattern() {
+            if (currentPattern.length < 3) {
+                alert('Add at least 3 colors to create a pattern!');
+                return;
+            }
+            
+            // Simple pattern detection
+            const first3 = currentPattern.slice(0, 3).join('');
+            const next3 = currentPattern.slice(3, 6).join('');
+            
+            let patternText = '';
+            if (first3 === next3) {
+                patternText = `I found a repeating pattern! The sequence ${currentPattern.slice(0, 3).join(' ')} repeats!`;
+            } else if (new Set(currentPattern).size === 1) {
+                patternText = `All the same color! This is a simple pattern.`;
+            } else {
+                patternText = `I see the pattern: ${currentPattern.join(' → ')}! Each color comes in order!`;
+            }
+            
+            document.getElementById('pattern-result').style.display = 'block';
+            document.getElementById('pattern-text').textContent = patternText;
+        }
+    </script>
+</body>
+</html>

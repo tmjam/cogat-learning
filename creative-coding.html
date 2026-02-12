@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎨 Creative Coding for Kids | Make Art with Code!</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Fredoka', sans-serif;
+            background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 99%, #fad0c4 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 30px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        nav {
+            position: relative;
+            z-index: 10;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 25px;
+            padding: 15px 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .nav-logo span:first-child {
+            font-size: 2em;
+        }
+
+        .nav-logo span:last-child {
+            color: white;
+            font-weight: 700;
+            font-size: 1.3em;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 10px 20px;
+            border-radius: 20px;
+            transition: all 0.3s;
+        }
+
+        .nav-links a:hover {
+            background: rgba(255,255,255,0.2);
+        }
+
+        .nav-links a.active {
+            background: rgba(255,255,255,0.3);
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .header h1 {
+            font-size: 3em;
+            background: linear-gradient(45deg, #ff9a9e, #fad0c4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+        }
+
+        .activity-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+
+        .activity-card {
+            background: linear-gradient(135deg, #f5f7fa 0%, #e8ecf1 100%);
+            border-radius: 20px;
+            padding: 30px;
+            cursor: pointer;
+            transition: transform 0.3s;
+            border: 3px solid transparent;
+        }
+
+        .activity-card:hover {
+            transform: translateY(-5px);
+            border-color: #ff9a9e;
+            box-shadow: 0 10px 30px rgba(255, 154, 158, 0.4);
+        }
+
+        .activity-icon {
+            font-size: 4em;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+
+        .activity-title {
+            font-size: 1.8em;
+            color: #333;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .activity-desc {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .start-btn {
+            background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 25px;
+            font-weight: 700;
+            cursor: pointer;
+            font-size: 1.1em;
+            transition: all 0.3s;
+        }
+
+        .start-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(255, 154, 158, 0.5);
+        }
+
+        .creative-playground {
+            display: none;
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 30px;
+            border: 3px solid #ff9a9e;
+        }
+
+        .creative-playground.active {
+            display: block;
+        }
+
+        .playground-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .playground-title {
+            color: #667eea;
+            font-size: 1.8em;
+            font-weight: 700;
+        }
+
+        .close-btn {
+            background: #ff6b6b;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: 700;
+        }
+
+        .canvas-area {
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .art-canvas {
+            width: 100%;
+            border: 3px solid #ff9a9e;
+            border-radius: 15px;
+            cursor: crosshair;
+        }
+
+        .tool-panel {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+            padding: 20px;
+            background: white;
+            border-radius: 15px;
+        }
+
+        .tool-btn {
+            padding: 12px 25px;
+            border: 3px solid #ff9a9e;
+            border-radius: 20px;
+            background: white;
+            cursor: pointer;
+            font-weight: 700;
+            transition: all 0.3s;
+            font-size: 1em;
+        }
+
+        .tool-btn:hover, .tool-btn.active {
+            background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
+            color: white;
+            border-color: #ff9a9e;
+        }
+
+        .color-picker {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .color-option {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            border: 3px solid transparent;
+            transition: all 0.3s;
+        }
+
+        .color-option:hover, .color-option.selected {
+            border-color: #333;
+            transform: scale(1.2);
+        }
+
+        .animation-preview {
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            min-height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .sprite {
+            font-size: 5em;
+            transition: all 0.5s;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 2em;
+            }
+
+            .activity-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Navigation -->
+        <nav>
+            <div class="nav-content">
+                <div class="nav-logo">
+                    <span>🌟</span>
+                    <span>Learning Adventure</span>
+                </div>
+                <div class="nav-links">
+                    <a href="index.html">🏠 CogAT Prep</a>
+                    <a href="coding-basics.html">💻 Coding Basics</a>
+                    <a href="ai-adventure.html">🤖 AI Adventure</a>
+                    <a href="creative-coding.html" class="active">🎨 Creative Coding</a>
+                    <a href="privacy.html">🔒 Privacy</a>
+                </div>
+            </div>
+        </nav>
+
+        <div class="header">
+            <h1>🎨 Creative Coding</h1>
+            <p style="font-size: 1.3em; color: #666;">Express yourself through code and art!</p>
+        </div>
+
+        <div id="activities-section">
+            <div class="activity-grid">
+                <div class="activity-card">
+                    <div class="activity-icon">🖌️</div>
+                    <h2 class="activity-title">Digital Paintbrush</h2>
+                    <p class="activity-desc">Paint and draw using code commands - be a digital artist!</p>
+                    <button class="start-btn" onclick="startPaintActivity()">Start Painting!</button>
+                </div>
+
+                <div class="activity-card">
+                    <div class="activity-icon">🌈</div>
+                    <h2 class="activity-title">Rainbow Generator</h2>
+                    <p class="activity-desc">Create beautiful rainbow patterns with just a few lines of code!</p>
+                    <button class="start-btn" onclick="startRainbowActivity()">Make Rainbows!</button>
+                </div>
+
+                <div class="activity-card">
+                    <div class="activity-icon">✨</div>
+                    <h2 class="activity-title">Fireworks Show</h2>
+                    <p class="activity-desc">Code your own amazing fireworks display!</p>
+                    <button class="start-btn" onclick="startFireworksActivity()">Launch Fireworks!</button>
+                </div>
+
+                <div class="activity-card">
+                    <div class="activity-icon">🎬</div>
+                    <h2 class="activity-title">Animation Studio</h2>
+                    <p class="activity-desc">Make characters move and dance with animation code!</p>
+                    <button class="start-btn" onclick="startAnimationActivity()">Animate!</button>
+                </div>
+
+                <div class="activity-card">
+                    <div class="activity-icon">🎵</div>
+                    <h2 class="activity-title">Music Maker</h2>
+                    <p class="activity-desc">Create melodies and beats by coding music patterns!</p>
+                    <button class="start-btn" onclick="startMusicActivity()">Make Music!</button>
+                </div>
+
+                <div class="activity-card">
+                    <div class="activity-icon">🌟</div>
+                    <h2 class="activity-title">Starfield Creator</h2>
+                    <p class="activity-desc">Generate your own starry night sky with twinkling stars!</p>
+                    <button class="start-btn" onclick="startStarfieldActivity()">Create Stars!</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Paint Activity -->
+        <div id="paint-playground" class="creative-playground">
+            <div class="playground-header">
+                <h2 class="playground-title">🖌️ Digital Paintbrush</h2>
+                <button class="close-btn" onclick="closeActivity()">✖ Close</button>
+            </div>
+
+            <div class="canvas-area">
+                <canvas id="paint-canvas" class="art-canvas" width="800" height="500"></canvas>
+            </div>
+
+            <div class="tool-panel">
+                <div style="width: 100%; margin-bottom: 10px;">
+                    <strong style="color: #667eea;">Choose Your Brush:</strong>
+                </div>
+                <button class="tool-btn active" id="brush-btn" onclick="selectTool('brush')">🖌️ Brush</button>
+                <button class="tool-btn" id="spray-btn" onclick="selectTool('spray')">💨 Spray</button>
+                <button class="tool-btn" id="eraser-btn" onclick="selectTool('eraser')">🧽 Eraser</button>
+                <button class="tool-btn" onclick="clearPaintCanvas()">🗑️ Clear</button>
+                <button class="tool-btn" onclick="savePainting()">💾 Save</button>
+            </div>
+
+            <div class="tool-panel">
+                <div style="width: 100%; margin-bottom: 10px;">
+                    <strong style="color: #667eea;">Pick a Color:</strong>
+                </div>
+                <div class="color-picker">
+                    <div class="color-option selected" style="background: #ff6b6b;" onclick="selectColor('#ff6b6b', this)"></div>
+                    <div class="color-option" style="background: #4ecdc4;" onclick="selectColor('#4ecdc4', this)"></div>
+                    <div class="color-option" style="background: #45b7d1;" onclick="selectColor('#45b7d1', this)"></div>
+                    <div class="color-option" style="background: #f7dc6f;" onclick="selectColor('#f7dc6f', this)"></div>
+                    <div class="color-option" style="background: #a29bfe;" onclick="selectColor('#a29bfe', this)"></div>
+                    <div class="color-option" style="background: #fd79a8;" onclick="selectColor('#fd79a8', this)"></div>
+                    <div class="color-option" style="background: #000000;" onclick="selectColor('#000000', this)"></div>
+                    <div class="color-option" style="background: #ffffff; border: 2px solid #ccc;" onclick="selectColor('#ffffff', this)"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Rainbow Activity -->
+        <div id="rainbow-playground" class="creative-playground">
+            <div class="playground-header">
+                <h2 class="playground-title">🌈 Rainbow Generator</h2>
+                <button class="close-btn" onclick="closeActivity()">✖ Close</button>
+            </div>
+
+            <div class="canvas-area">
+                <canvas id="rainbow-canvas" class="art-canvas" width="800" height="500"></canvas>
+            </div>
+
+            <div class="tool-panel">
+                <button class="tool-btn" onclick="drawRainbow('arc')">🌈 Curved Rainbow</button>
+                <button class="tool-btn" onclick="drawRainbow('straight')">📏 Straight Rainbow</button>
+                <button class="tool-btn" onclick="drawRainbow('circles')">⭕ Circle Rainbow</button>
+                <button class="tool-btn" onclick="drawRainbow('spiral')">🌀 Spiral Rainbow</button>
+                <button class="tool-btn" onclick="clearRainbowCanvas()">🗑️ Clear</button>
+            </div>
+
+            <div style="background: white; border-radius: 15px; padding: 20px; margin-top: 20px;">
+                <h3 style="color: #667eea; margin-bottom: 10px;">🎨 Rainbow Code:</h3>
+                <code style="display: block; padding: 15px; background: #f5f7fa; border-radius: 10px; font-size: 1.1em;">
+                    colors = ['red', 'orange', 'yellow', 'green', 'blue', 'purple']<br>
+                    for color in colors:<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;draw.arc(color)
+                </code>
+            </div>
+        </div>
+
+        <!-- Animation Activity -->
+        <div id="animation-playground" class="creative-playground">
+            <div class="playground-header">
+                <h2 class="playground-title">🎬 Animation Studio</h2>
+                <button class="close-btn" onclick="closeActivity()">✖ Close</button>
+            </div>
+
+            <div class="animation-preview" id="animation-stage">
+                <div class="sprite" id="animated-sprite">🦋</div>
+            </div>
+
+            <div class="tool-panel">
+                <button class="tool-btn" onclick="animateSprite('bounce')">⬆️ Bounce</button>
+                <button class="tool-btn" onclick="animateSprite('spin')">🔄 Spin</button>
+                <button class="tool-btn" onclick="animateSprite('grow')">📈 Grow</button>
+                <button class="tool-btn" onclick="animateSprite('slide')">➡️ Slide</button>
+                <button class="tool-btn" onclick="changeSprite()">🎭 Change Character</button>
+                <button class="tool-btn" onclick="stopAnimation()">⏹️ Stop</button>
+            </div>
+
+            <div style="background: white; border-radius: 15px; padding: 20px; margin-top: 20px;">
+                <h3 style="color: #667eea; margin-bottom: 10px;">🎬 Animation Code:</h3>
+                <code id="animation-code" style="display: block; padding: 15px; background: #f5f7fa; border-radius: 10px; font-size: 1.1em;">
+                    sprite.animate('bounce')<br>
+                    sprite.duration = 1.0 seconds
+                </code>
+            </div>
+        </div>
+
+        <footer style="text-align: center; margin-top: 40px; padding: 20px; color: #666;">
+            <p>© 2026 Learning Adventure | <a href="privacy.html" style="color: #667eea;">Privacy Policy</a></p>
+        </footer>
+    </div>
+
+    <script>
+        let paintCanvas, paintCtx;
+        let rainbowCanvas, rainbowCtx;
+        let isDrawing = false;
+        let currentColor = '#ff6b6b';
+        let currentTool = 'brush';
+        const sprites = ['🦋', '🐝', '🐞', '🦜', '🐠', '🦊', '🐱', '🐶'];
+        let currentSpriteIndex = 0;
+
+        function startPaintActivity() {
+            document.getElementById('activities-section').style.display = 'none';
+            document.getElementById('paint-playground').classList.add('active');
+            initPaintCanvas();
+        }
+
+        function startRainbowActivity() {
+            document.getElementById('activities-section').style.display = 'none';
+            document.getElementById('rainbow-playground').classList.add('active');
+            initRainbowCanvas();
+        }
+
+        function startFireworksActivity() {
+            alert('✨ Fireworks Show coming soon! Get ready for spectacular displays!');
+        }
+
+        function startAnimationActivity() {
+            document.getElementById('activities-section').style.display = 'none';
+            document.getElementById('animation-playground').classList.add('active');
+        }
+
+        function startMusicActivity() {
+            alert('🎵 Music Maker coming soon! Create amazing melodies with code!');
+        }
+
+        function startStarfieldActivity() {
+            alert('🌟 Starfield Creator coming soon! Make your own galaxy!');
+        }
+
+        function closeActivity() {
+            document.querySelectorAll('.creative-playground').forEach(p => p.classList.remove('active'));
+            document.getElementById('activities-section').style.display = 'block';
+            stopAnimation();
+        }
+
+        function initPaintCanvas() {
+            paintCanvas = document.getElementById('paint-canvas');
+            paintCtx = paintCanvas.getContext('2d');
+            paintCanvas.width = paintCanvas.offsetWidth;
+            
+            paintCanvas.addEventListener('mousedown', startDrawing);
+            paintCanvas.addEventListener('mousemove', draw);
+            paintCanvas.addEventListener('mouseup', stopDrawing);
+            paintCanvas.addEventListener('mouseout', stopDrawing);
+            
+            // Touch events
+            paintCanvas.addEventListener('touchstart', (e) => {
+                e.preventDefault();
+                startDrawing(e.touches[0]);
+            });
+            paintCanvas.addEventListener('touchmove', (e) => {
+                e.preventDefault();
+                draw(e.touches[0]);
+            });
+            paintCanvas.addEventListener('touchend', stopDrawing);
+        }
+
+        function startDrawing(e) {
+            isDrawing = true;
+            const rect = paintCanvas.getBoundingClientRect();
+            const x = (e.clientX || e.pageX) - rect.left;
+            const y = (e.clientY || e.pageY) - rect.top;
+            paintCtx.beginPath();
+            paintCtx.moveTo(x, y);
+        }
+
+        function draw(e) {
+            if (!isDrawing) return;
+            
+            const rect = paintCanvas.getBoundingClientRect();
+            const x = (e.clientX || e.pageX) - rect.left;
+            const y = (e.clientY || e.pageY) - rect.top;
+            
+            paintCtx.lineWidth = currentTool === 'eraser' ? 20 : 5;
+            paintCtx.lineCap = 'round';
+            paintCtx.strokeStyle = currentTool === 'eraser' ? '#ffffff' : currentColor;
+            
+            if (currentTool === 'spray') {
+                for (let i = 0; i < 20; i++) {
+                    const offsetX = (Math.random() - 0.5) * 20;
+                    const offsetY = (Math.random() - 0.5) * 20;
+                    paintCtx.fillStyle = currentColor;
+                    paintCtx.fillRect(x + offsetX, y + offsetY, 2, 2);
+                }
+            } else {
+                paintCtx.lineTo(x, y);
+                paintCtx.stroke();
+            }
+        }
+
+        function stopDrawing() {
+            isDrawing = false;
+        }
+
+        function selectTool(tool) {
+            currentTool = tool;
+            document.querySelectorAll('.tool-btn').forEach(btn => btn.classList.remove('active'));
+            document.getElementById(tool + '-btn')?.classList.add('active');
+        }
+
+        function selectColor(color, element) {
+            currentColor = color;
+            document.querySelectorAll('.color-option').forEach(opt => opt.classList.remove('selected'));
+            element.classList.add('selected');
+        }
+
+        function clearPaintCanvas() {
+            paintCtx.clearRect(0, 0, paintCanvas.width, paintCanvas.height);
+        }
+
+        function savePainting() {
+            alert('🎨 Your masterpiece is ready! In a full version, you could download it!');
+        }
+
+        function initRainbowCanvas() {
+            rainbowCanvas = document.getElementById('rainbow-canvas');
+            rainbowCtx = rainbowCanvas.getContext('2d');
+            rainbowCanvas.width = rainbowCanvas.offsetWidth;
+        }
+
+        function drawRainbow(type) {
+            rainbowCtx.clearRect(0, 0, rainbowCanvas.width, rainbowCanvas.height);
+            const colors = ['#ff0000', '#ff7f00', '#ffff00', '#00ff00', '#0000ff', '#8b00ff'];
+            const centerX = rainbowCanvas.width / 2;
+            const centerY = rainbowCanvas.height - 50;
+            
+            if (type === 'arc') {
+                colors.forEach((color, i) => {
+                    rainbowCtx.beginPath();
+                    rainbowCtx.arc(centerX, centerY, 200 - (i * 30), 0, Math.PI, true);
+                    rainbowCtx.strokeStyle = color;
+                    rainbowCtx.lineWidth = 25;
+                    rainbowCtx.stroke();
+                });
+            } else if (type === 'straight') {
+                colors.forEach((color, i) => {
+                    rainbowCtx.fillStyle = color;
+                    rainbowCtx.fillRect(0, i * 80, rainbowCanvas.width, 75);
+                });
+            } else if (type === 'circles') {
+                colors.forEach((color, i) => {
+                    rainbowCtx.beginPath();
+                    rainbowCtx.arc(100 + i * 120, rainbowCanvas.height / 2, 50, 0, Math.PI * 2);
+                    rainbowCtx.fillStyle = color;
+                    rainbowCtx.fill();
+                });
+            } else if (type === 'spiral') {
+                let angle = 0;
+                let radius = 10;
+                for (let i = 0; i < 300; i++) {
+                    const x = centerX + Math.cos(angle) * radius;
+                    const y = centerY + Math.sin(angle) * radius;
+                    rainbowCtx.fillStyle = colors[i % colors.length];
+                    rainbowCtx.fillRect(x, y, 5, 5);
+                    angle += 0.1;
+                    radius += 0.5;
+                }
+            }
+        }
+
+        function clearRainbowCanvas() {
+            rainbowCtx.clearRect(0, 0, rainbowCanvas.width, rainbowCanvas.height);
+        }
+
+        function animateSprite(type) {
+            const sprite = document.getElementById('animated-sprite');
+            const code = document.getElementById('animation-code');
+            sprite.style.transition = 'all 1s ease-in-out';
+            
+            switch(type) {
+                case 'bounce':
+                    sprite.style.transform = 'translateY(-100px)';
+                    setTimeout(() => sprite.style.transform = 'translateY(0)', 1000);
+                    code.innerHTML = `sprite.animate('bounce')<br>sprite.duration = 1.0 seconds`;
+                    break;
+                case 'spin':
+                    sprite.style.transform = 'rotate(360deg)';
+                    setTimeout(() => sprite.style.transform = 'rotate(0deg)'), 1000);
+                    code.innerHTML = `sprite.rotate(360)<br>sprite.duration = 1.0 seconds`;
+                    break;
+                case 'grow':
+                    sprite.style.transform = 'scale(2)';
+                    setTimeout(() => sprite.style.transform = 'scale(1)'), 1000);
+                    code.innerHTML = `sprite.scale(2.0)<br>sprite.duration = 1.0 seconds`;
+                    break;
+                case 'slide':
+                    sprite.style.transform = 'translateX(200px)';
+                    setTimeout(() => sprite.style.transform = 'translateX(0)'), 1000);
+                    code.innerHTML = `sprite.move_x(200)<br>sprite.duration = 1.0 seconds`;
+                    break;
+            }
+        }
+
+        function changeSprite() {
+            currentSpriteIndex = (currentSpriteIndex + 1) % sprites.length;
+            document.getElementById('animated-sprite').textContent = sprites[currentSpriteIndex];
+        }
+
+        function stopAnimation() {
+            const sprite = document.getElementById('animated-sprite');
+            sprite.style.transform = '';
+        }
+    </script>
+</body>
+</html>
