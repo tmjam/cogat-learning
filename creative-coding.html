@@ -297,6 +297,7 @@
                     <a href="coding-basics.html">💻 Coding Basics</a>
                     <a href="ai-adventure.html">🤖 AI Adventure</a>
                     <a href="creative-coding.html" class="active">🎨 Creative Coding</a>
+                    <a href="math-world.html">🧮 Math</a>
                     <a href="privacy.html">🔒 Privacy</a>
                 </div>
             </div>
@@ -461,7 +462,7 @@
         let isDrawing = false;
         let currentColor = '#ff6b6b';
         let currentTool = 'brush';
-        const sprites = ['🦋', '🐝', '🐞', '🦜', '🐠', '🦊', '🐱', '🐶'];
+        const sprites = ['🦋', '🐝'   , '🐞', '🦜', '🐠', '🦊', '🐱', '🐶'];
         let currentSpriteIndex = 0;
 
         function startPaintActivity() {
@@ -641,17 +642,17 @@
                     break;
                 case 'spin':
                     sprite.style.transform = 'rotate(360deg)';
-                    setTimeout(() => sprite.style.transform = 'rotate(0deg)'), 1000);
+                    setTimeout(() => sprite.style.transform = 'rotate(0deg)', 1000);
                     code.innerHTML = `sprite.rotate(360)<br>sprite.duration = 1.0 seconds`;
                     break;
                 case 'grow':
                     sprite.style.transform = 'scale(2)';
-                    setTimeout(() => sprite.style.transform = 'scale(1)'), 1000);
+                    setTimeout(() => sprite.style.transform = 'scale(1)', 1000);
                     code.innerHTML = `sprite.scale(2.0)<br>sprite.duration = 1.0 seconds`;
                     break;
                 case 'slide':
                     sprite.style.transform = 'translateX(200px)';
-                    setTimeout(() => sprite.style.transform = 'translateX(0)'), 1000);
+                    setTimeout(() => sprite.style.transform = 'translateX(0)', 1000);
                     code.innerHTML = `sprite.move_x(200)<br>sprite.duration = 1.0 seconds`;
                     break;
             }
