@@ -382,7 +382,7 @@
             <div class="controls">
                 <button class="control-btn" onclick="addShape('circle', 'red')">🔴 Red Circle</button>
                 <button class="control-btn" onclick="addShape('square', 'blue')">🟦 Blue Square</button>
-                <button class="control-btn" onclick="addShape('triangle', 'green')">🟩 Green Triangle</button>
+                <button class="control-btn" onclick="addShape('triangle', 'green')">🔺 Red Triangle</button>
                 <button class="control-btn" onclick="repeatPattern()">🔁 Repeat Pattern</button>
                 <button class="control-btn" onclick="clearPattern()">🗑️ Clear</button>
             </div>
@@ -601,7 +601,7 @@
         function renderPattern() {
             const canvas = document.getElementById('pattern-canvas');
             canvas.innerHTML = patternShapes.map(({ shape, color }) => {
-                const emoji = shape === 'circle' ? '⭕' : shape === 'square' ? '⬛' : '🔺';
+                const emoji = shape === 'circle' ? '🔴' : shape === 'square' ? '🟦' : '🔺';
                 const colorStyle = color === 'red' ? '#ff6b6b' : color === 'blue' ? '#4ecdc4' : '#38ef7d';
                 return `<div style="font-size: 3em; color: ${colorStyle}">${emoji}</div>`;
             }).join('');
