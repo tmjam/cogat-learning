@@ -1225,6 +1225,7 @@
                 <h4 style="color: #667eea; margin-bottom: 10px;">Quick Links</h4>
                 <p>
                     <a href="#main-menu" style="color: #667eea; text-decoration: none; font-weight: 600; margin: 0 10px;">Learning Modules</a> | 
+                    <a href="math-world.html">🧮 Math</a>
                     <a href="privacy.html" style="color: #667eea; text-decoration: none; font-weight: 600; margin: 0 10px;">Privacy Policy</a> | 
                     <a href="https://github.com/[your-username]/cogat-learning" style="color: #667eea; text-decoration: none; font-weight: 600; margin: 0 10px;">GitHub</a>
                 </p>
@@ -1321,6 +1322,86 @@
                 icon: "🎯",
                 color: "#00cec9",
                 lessons: generateAdvancedLessons()
+            },
+            {
+                id: 11,
+                title: "3D Thinking",
+                description: "Visualize objects from different angles and perspectives!",
+                icon: "🎲",
+                color: "#e74c3c",
+                lessons: generate3DThinkingLessons()
+            },
+            {
+                id: 12,
+                title: "Matrix Reasoning",
+                description: "Complete the pattern grids like a detective!",
+                icon: "🔲",
+                color: "#9b59b6",
+                lessons: generateMatrixLessons()
+            },
+            {
+                id: 13,
+                title: "Series Completion",
+                description: "Find what comes next in complex series!",
+                icon: "📊",
+                color: "#3498db",
+                lessons: generateSeriesLessons()
+            },
+            {
+                id: 14,
+                title: "Verbal Analogies",
+                description: "Master word relationships and vocabulary!",
+                icon: "💬",
+                color: "#1abc9c",
+                lessons: generateVerbalAnalogiesLessons()
+            },
+            {
+                id: 15,
+                title: "Quantitative Concepts",
+                description: "Compare amounts, sizes, and quantities!",
+                icon: "⚖️",
+                color: "#f39c12",
+                lessons: generateQuantitativeLessons()
+            },
+            {
+                id: 16,
+                title: "Paper Folding",
+                description: "Imagine folding and cutting paper puzzles!",
+                icon: "📄",
+                color: "#16a085",
+                lessons: generatePaperFoldingLessons()
+            },
+            {
+                id: 17,
+                title: "Figure Classification",
+                description: "Group shapes by their special properties!",
+                icon: "🔍",
+                color: "#d35400",
+                lessons: generateFigureClassificationLessons()
+            },
+            {
+                id: 18,
+                title: "Number Puzzles",
+                description: "Crack number codes and mathematical mysteries!",
+                icon: "🔢",
+                color: "#c0392b",
+                lessons: generateNumberPuzzlesLessons()
+            },
+            {
+                id: 19,
+                title: "Building Blocks",
+                description: "Count cubes and build mental 3D structures!",
+                icon: "🧱",
+                color: "#8e44ad",
+                lessons: generateBuildingBlocksLessons()
+            },
+            {
+                id: 20,
+                title: "Brain Teasers",
+                description: "Challenge your mind with tricky riddles!",
+                icon: "🧩",
+                color: "#27ae60",
+                lessons: generateBrainTeasersLessons()
             }
         ];
 
@@ -1571,6 +1652,281 @@
                 { type: "advanced", question: "Which is different: All can fly except", options: ["🐦", "🦋", "✈️", "🐟"], correct: 3 },
                 { type: "advanced", question: "If ⬜=1 and ⬛=2, what is ⬜⬛⬜?", options: ["3", "4", "5", "6"], correct: 1 },
                 { type: "advanced", question: "Complete: Sun Mon Tue Wed __", options: ["Thu", "Fri", "Sat", "Sun"], correct: 0 }
+            ];
+        }
+
+        function generateAdvancedLessons() {
+            return [
+                { type: "advanced", question: "If A=1, B=2, what is C?", options: ["1", "2", "3", "4"], correct: 2 },
+                { type: "advanced", question: "Complete: 🔴🔴🔵 🔴🔴🔵 __", options: ["🔴🔴🔵", "🔵🔵🔴", "🔴🔵🔴", "🔵🔴🔴"], correct: 0 },
+                { type: "advanced", question: "Which doesn't fit the rule: All are round", options: ["⚽", "🎾", "🏀", "🔺"], correct: 3 },
+                { type: "advanced", question: "Pattern: A B C, D E F, G H __", options: ["G", "H", "I", "J"], correct: 2 },
+                { type: "advanced", question: "If 🍎=2 and 🍊=3, what is 🍎+🍊?", options: ["4", "5", "6", "7"], correct: 1 },
+                { type: "advanced", question: "Continue: 1,1,2,3,5,__", options: ["6", "7", "8", "9"], correct: 2 },
+                { type: "advanced", question: "Which breaks the pattern: 🔵🔴🔵🔴🟡", options: ["1st", "2nd", "3rd", "5th"], correct: 3 },
+                { type: "advanced", question: "If all 🐕 are 🐾, are all 🐾 dogs?", options: ["Yes", "No", "Maybe", "Always"], correct: 1 },
+                { type: "advanced", question: "Complete: 2,4,8,16,__", options: ["20", "24", "32", "40"], correct: 2 },
+                { type: "advanced", question: "Which is next: ⬜⬛⬜⬜⬛⬛⬜⬜⬜__", options: ["⬜", "⬛", "🟥", "🟦"], correct: 1 },
+                { type: "advanced", question: "If today is Day 3, what was 2 days ago?", options: ["Day 0", "Day 1", "Day 2", "Day 4"], correct: 1 },
+                { type: "advanced", question: "Pattern: AB, BC, CD, __", options: ["DD", "DE", "EF", "DC"], correct: 1 },
+                { type: "advanced", question: "If 🌟=5 and ⭐=3, what is 🌟-⭐?", options: ["1", "2", "3", "4"], correct: 1 },
+                { type: "advanced", question: "Continue: Z, Y, X, W, __", options: ["U", "V", "W", "X"], correct: 1 },
+                { type: "advanced", question: "Which completes: 🔴🔵🟡, 🔵🟡🟢, 🟡🟢__", options: ["🔴", "🟣", "🟠", "⚪"], correct: 1 },
+                { type: "advanced", question: "If A→B→C, then 1→2→__", options: ["1", "2", "3", "4"], correct: 2 },
+                { type: "advanced", question: "Pattern: 10,9,11,10,12,__", options: ["10", "11", "12", "13"], correct: 1 },
+                { type: "advanced", question: "Which is different: All can fly except", options: ["🐦", "🦋", "✈️", "🐟"], correct: 3 },
+                { type: "advanced", question: "If ⬜=1 and ⬛=2, what is ⬜⬛⬜?", options: ["3", "4", "5", "6"], correct: 1 },
+                { type: "advanced", question: "Complete: Sun Mon Tue Wed __", options: ["Thu", "Fri", "Sat", "Sun"], correct: 0 }
+            ];
+        }
+
+        function generate3DThinkingLessons() {
+            return [
+                { type: "3d", question: "How many faces does a cube have?", options: ["4", "6", "8", "12"], correct: 1, hint: "Think of a dice!" },
+                { type: "3d", question: "If you look at a ball from above, what shape do you see?", options: ["Square", "Circle", "Triangle", "Rectangle"], correct: 1 },
+                { type: "3d", question: "A box has how many corners?", options: ["4", "6", "8", "10"], correct: 2 },
+                { type: "3d", question: "Which view shows the top of a pyramid? 🔺", options: ["Square", "Circle", "Triangle", "Star"], correct: 0 },
+                { type: "3d", question: "How many edges does a cube have?", options: ["6", "8", "10", "12"], correct: 3 },
+                { type: "3d", question: "If you fold a square paper, what shape do you get?", options: ["Rectangle", "Triangle", "Circle", "Pentagon"], correct: 0 },
+                { type: "3d", question: "Looking at a cylinder from the side, you see a __", options: ["Circle", "Rectangle", "Triangle", "Square"], correct: 1 },
+                { type: "3d", question: "A pyramid with a square base has how many triangular faces?", options: ["3", "4", "5", "6"], correct: 1 },
+                { type: "3d", question: "Which 3D shape rolls?", options: ["Cube", "Pyramid", "Sphere", "Cone"], correct: 2 },
+                { type: "3d", question: "If you see a circle from above, it could be a __", options: ["Cube", "Cylinder", "Pyramid", "Rectangle"], correct: 1 },
+                { type: "3d", question: "How many vertices (corners) does a triangular pyramid have?", options: ["3", "4", "5", "6"], correct: 1 },
+                { type: "3d", question: "A rectangular prism has __ rectangular faces", options: ["4", "5", "6", "8"], correct: 2 },
+                { type: "3d", question: "Looking at a cube from any angle, you can see at most __ faces", options: ["1", "2", "3", "4"], correct: 2 },
+                { type: "3d", question: "Which shape has no corners?", options: ["Cube", "Pyramid", "Sphere", "Prism"], correct: 2 },
+                { type: "3d", question: "A cone has how many flat surfaces?", options: ["0", "1", "2", "3"], correct: 1 },
+                { type: "3d", question: "If you unfold a cube, you get __ squares", options: ["4", "5", "6", "8"], correct: 2 },
+                { type: "3d", question: "Looking at a rectangle from the front, it's a __. From the side?", options: ["Square", "Rectangle", "Circle", "Triangle"], correct: 1 },
+                { type: "3d", question: "How many edges meet at each corner of a cube?", options: ["2", "3", "4", "6"], correct: 1 },
+                { type: "3d", question: "Which shape is a 3D triangle?", options: ["Cone", "Pyramid", "Prism", "Cylinder"], correct: 1 },
+                { type: "3d", question: "A cylinder has __ circular faces", options: ["0", "1", "2", "3"], correct: 2 }
+            ];
+        }
+
+        function generateMatrixLessons() {
+            return [
+                { type: "matrix", question: "In a 2×2 grid: ⭐🌙 / 🌙⭐. Pattern?", options: ["Swap", "Same", "Rotate", "Mirror"], correct: 0 },
+                { type: "matrix", question: "Grid: 🔴🔵 / 🔵🔴. What's in bottom right?", options: ["🔴", "🔵", "🟡", "🟢"], correct: 0 },
+                { type: "matrix", question: "Pattern: Each row adds 1 shape. Row 1: ⭐. Row 2: ⭐⭐. Row 3?", options: ["⭐", "⭐⭐", "⭐⭐⭐", "⭐⭐⭐⭐"], correct: 2 },
+                { type: "matrix", question: "Grid shows: Big, Small, Medium. Big, ?, Medium. What's missing?", options: ["Big", "Small", "Medium", "Tiny"], correct: 1 },
+                { type: "matrix", question: "Each column has 3 different colors. Col 1: 🔴🔵🟡. Col 2: 🔵🟡🔴. Col 3 starts with 🟡..?", options: ["🔴🔵", "🔵🔴", "🟡🔴", "🔴🟡"], correct: 0 },
+                { type: "matrix", question: "Pattern: Row 1 all circles ⭕⭕⭕. Row 2 all squares ⬛⬛⬛. Row 3?", options: ["Circles", "Squares", "Triangles", "Stars"], correct: 2 },
+                { type: "matrix", question: "Each position rotates: ↑→↓←. If top-left is ↑, bottom-right is?", options: ["↑", "→", "↓", "←"], correct: 2 },
+                { type: "matrix", question: "Grid adds 1 dot each cell: 1,2,3 / 4,5,6 / 7,8,?", options: ["7", "8", "9", "10"], correct: 2 },
+                { type: "matrix", question: "Pattern alternates: X O X / O X O / X O ?", options: ["X", "O", "Both", "None"], correct: 0 },
+                { type: "matrix", question: "Each row has same shape, different size: 🔵🔴🟡. Next row: 🟢🟠🟣. Pattern?", options: ["Color", "Size", "Shape", "Position"], correct: 0 },
+                { type: "matrix", question: "Diagonal pattern: Top-left ⭐, middle 🌙, bottom-right ?", options: ["⭐", "🌙", "☀️", "Same as pattern"], correct: 2 },
+                { type: "matrix", question: "Grid increases: 1,2,4 / 8,16,32 / 64,128,?", options: ["130", "200", "256", "512"], correct: 2 },
+                { type: "matrix", question: "Each cell combines shapes from row+column. Row has ⭐, column has 🌙. Cell shows?", options: ["⭐", "🌙", "⭐🌙", "☀️"], correct: 2 },
+                { type: "matrix", question: "Pattern: Full, Half, Empty. Next after Full, Half is?", options: ["Full", "Half", "Empty", "Quarter"], correct: 2 },
+                { type: "matrix", question: "Grid: All corners same, middle different. Corners: 🔴. Middle must be?", options: ["🔴", "Not 🔴", "Any", "🔵"], correct: 1 },
+                { type: "matrix", question: "Each row = 3 shapes. Row 1: ⭐⭐⭐. Row 2: 🌙🌙🌙. Row 3 has 2 ☀️. How many total?", options: ["1", "2", "3", "4"], correct: 2 },
+                { type: "matrix", question: "Pattern moves clockwise: 1→2→3→4. If 1 is top-left, 3 is?", options: ["Top-right", "Bottom-right", "Bottom-left", "Middle"], correct: 1 },
+                { type: "matrix", question: "Grid rule: Sum of each row = 10. Row has 3,3,?", options: ["3", "4", "5", "10"], correct: 1 },
+                { type: "matrix", question: "Each column increases by 2: Col 1: 2,4,6. Col 2 starts at 5. Third number?", options: ["7", "8", "9", "10"], correct: 2 },
+                { type: "matrix", question: "Mirror pattern: Left side ⭐🌙☀️. Right side must be?", options: ["⭐🌙☀️", "☀️🌙⭐", "🌙⭐☀️", "Same"], correct: 1 }
+            ];
+        }
+
+        function generateSeriesLessons() {
+            return [
+                { type: "series", question: "A, C, E, G, __", options: ["H", "I", "J", "K"], correct: 1, hint: "Skip one letter!" },
+                { type: "series", question: "2, 5, 8, 11, __", options: ["12", "13", "14", "15"], correct: 2 },
+                { type: "series", question: "🔴, 🔴🔴, 🔴🔴🔴, __", options: ["🔴", "🔴🔴", "🔴🔴🔴", "🔴🔴🔴🔴"], correct: 3 },
+                { type: "series", question: "1, 4, 9, 16, __ (squares)", options: ["20", "24", "25", "30"], correct: 2 },
+                { type: "series", question: "AB, CD, EF, __", options: ["FG", "GH", "HI", "EF"], correct: 1 },
+                { type: "series", question: "10, 20, 15, 25, 20, __", options: ["25", "30", "35", "40"], correct: 1 },
+                { type: "series", question: "⭐, ⭐⭐, ⭐⭐⭐, ⭐⭐⭐⭐, How many in 5th?", options: ["4", "5", "6", "7"], correct: 1 },
+                { type: "series", question: "Z, Y, X, W, __", options: ["U", "V", "T", "S"], correct: 1 },
+                { type: "series", question: "1, 2, 4, 7, 11, __ (add 1,2,3,4...)", options: ["14", "15", "16", "17"], correct: 2 },
+                { type: "series", question: "🌙, ☀️, 🌙, ☀️, 🌙, __", options: ["🌙", "☀️", "⭐", "🌟"], correct: 1 },
+                { type: "series", question: "100, 95, 90, 85, __", options: ["75", "80", "85", "90"], correct: 1 },
+                { type: "series", question: "AZ, BY, CX, __", options: ["DW", "DV", "CW", "EW"], correct: 0 },
+                { type: "series", question: "3, 6, 12, 24, __ (double each)", options: ["36", "48", "50", "60"], correct: 1 },
+                { type: "series", question: "Red, Orange, Yellow, Green, __", options: ["Blue", "Purple", "Pink", "Brown"], correct: 0 },
+                { type: "series", question: "🔵, 🔵🔴, 🔵🔴🟡, __", options: ["🔵🔴🟡🟢", "🔴🟡", "🔵🔴", "🟡🟢"], correct: 0 },
+                { type: "series", question: "5, 10, 20, 40, __", options: ["60", "70", "80", "90"], correct: 2 },
+                { type: "series", question: "J, F, M, A, M, __ (months)", options: ["J", "A", "S", "N"], correct: 0 },
+                { type: "series", question: "2, 3, 5, 8, 12, __ (+1,+2,+3,+4...)", options: ["15", "16", "17", "18"], correct: 2 },
+                { type: "series", question: "Square, Pentagon, Hexagon, __ (add 1 side)", options: ["Heptagon", "Octagon", "Pentagon", "Square"], correct: 0 },
+                { type: "series", question: "1, 1, 2, 6, 24, __ (factorial)", options: ["48", "96", "120", "144"], correct: 2 }
+            ];
+        }
+
+        function generateVerbalAnalogiesLessons() {
+            return [
+                { type: "verbal", question: "Hot is to Cold as Up is to __", options: ["Down", "Top", "High", "Low"], correct: 0 },
+                { type: "verbal", question: "Bark is to Tree as Skin is to __", options: ["Face", "Body", "Hand", "Foot"], correct: 1 },
+                { type: "verbal", question: "Glove is to Hand as Sock is to __", options: ["Shoe", "Foot", "Leg", "Toe"], correct: 1 },
+                { type: "verbal", question: "Chapter is to Book as Verse is to __", options: ["Song", "Poem", "Story", "Word"], correct: 1 },
+                { type: "verbal", question: "Feather is to Bird as Scale is to __", options: ["Weight", "Fish", "Balance", "Ruler"], correct: 1 },
+                { type: "verbal", question: "Yawn is to Tired as Shiver is to __", options: ["Hot", "Cold", "Scared", "Happy"], correct: 1 },
+                { type: "verbal", question: "Fin is to Fish as Wing is to __", options: ["Bird", "Plane", "Kite", "All of them"], correct: 3 },
+                { type: "verbal", question: "Teacher is to Student as Doctor is to __", options: ["Nurse", "Patient", "Hospital", "Medicine"], correct: 1 },
+                { type: "verbal", question: "Paw is to Cat as Hoof is to __", options: ["Dog", "Horse", "Bird", "Fish"], correct: 1 },
+                { type: "verbal", question: "Smile is to Happy as Frown is to __", options: ["Sad", "Mad", "Glad", "Bad"], correct: 0 },
+                { type: "verbal", question: "Wheel is to Car as Sail is to __", options: ["Wind", "Boat", "Water", "Ship"], correct: 1 },
+                { type: "verbal", question: "Author is to Book as Artist is to __", options: ["Painting", "Museum", "Color", "Brush"], correct: 0 },
+                { type: "verbal", question: "Cub is to Bear as Kitten is to __", options: ["Dog", "Cat", "Mouse", "Lion"], correct: 1 },
+                { type: "verbal", question: "Bud is to Flower as Egg is to __", options: ["Chicken", "Bird", "Nest", "Shell"], correct: 1 },
+                { type: "verbal", question: "Morning is to Breakfast as Evening is to __", options: ["Lunch", "Dinner", "Snack", "Dessert"], correct: 1 },
+                { type: "verbal", question: "Steering Wheel is to Car as Handlebars is to __", options: ["Bike", "Motorcycle", "Scooter", "All of them"], correct: 3 },
+                { type: "verbal", question: "Carpenter is to Wood as Potter is to __", options: ["Paint", "Clay", "Stone", "Metal"], correct: 1 },
+                { type: "verbal", question: "Brave is to Cowardly as Generous is to __", options: ["Kind", "Selfish", "Giving", "Nice"], correct: 1 },
+                { type: "verbal", question: "Lens is to Camera as Screen is to __", options: ["TV", "Computer", "Phone", "All of them"], correct: 3 },
+                { type: "verbal", question: "Oven is to Bake as Freezer is to __", options: ["Cool", "Freeze", "Melt", "Heat"], correct: 1 }
+            ];
+        }
+
+        function generateQuantitativeLessons() {
+            return [
+                { type: "quantity", question: "Which is more: 15 or 12?", options: ["15", "12", "Same", "Can't tell"], correct: 0 },
+                { type: "quantity", question: "3 apples + 4 apples vs 2 oranges + 6 oranges", options: ["Apples more", "Oranges more", "Same", "Can't tell"], correct: 1 },
+                { type: "quantity", question: "5 × 3 vs 4 × 4", options: ["First more", "Second more", "Same", "Can't tell"], correct: 0 },
+                { type: "quantity", question: "Half of 20 vs Third of 18", options: ["Half more", "Third more", "Same", "Can't tell"], correct: 0 },
+                { type: "quantity", question: "10 - 3 vs 5 + 2", options: ["First more", "Second more", "Same", "Can't tell"], correct: 2 },
+                { type: "quantity", question: "2 dozens vs 20 items", options: ["Dozens more", "20 more", "Same", "Can't tell"], correct: 0 },
+                { type: "quantity", question: "If Tom has 8 candies and gives away 3, vs Lisa who has 6 and gets 2 more", options: ["Tom more", "Lisa more", "Same", "Can't tell"], correct: 1 },
+                { type: "quantity", question: "3 + 3 + 3 vs 3 × 4", options: ["First more", "Second more", "Same", "Can't tell"], correct: 1 },
+                { type: "quantity", question: "Length: 2 feet vs 30 inches", options: ["Feet more", "Inches more", "Same", "Can't tell"], correct: 1 },
+                { type: "quantity", question: "50 cents vs half a dollar", options: ["Cents more", "Half dollar more", "Same", "Can't tell"], correct: 2 },
+                { type: "quantity", question: "4 quarters vs 10 dimes", options: ["Quarters more", "Dimes more", "Same", "Can't tell"], correct: 2 },
+                { type: "quantity", question: "2 + 5 + 3 vs 12 - 2", options: ["First more", "Second more", "Same", "Can't tell"], correct: 2 },
+                { type: "quantity", question: "Double 6 vs Triple 4", options: ["Double more", "Triple more", "Same", "Can't tell"], correct: 2 },
+                { type: "quantity", question: "7 × 2 vs 5 × 3", options: ["7×2 more", "5×3 more", "Same", "Can't tell"], correct: 1 },
+                { type: "quantity", question: "20 ÷ 4 vs 3 × 2", options: ["First more", "Second more", "Same", "Can't tell"], correct: 1 },
+                { type: "quantity", question: "8 - 2 - 1 vs 10 - 5", options: ["First more", "Second more", "Same", "Can't tell"], correct: 2 },
+                { type: "quantity", question: "If box A has 5 toys and box B has 3 more than A", options: ["A more", "B more", "Same", "Can't tell"], correct: 1 },
+                { type: "quantity", question: "60 seconds vs 1 minute", options: ["Seconds more", "Minute more", "Same", "Can't tell"], correct: 2 },
+                { type: "quantity", question: "2 groups of 7 vs 3 groups of 5", options: ["First more", "Second more", "Same", "Can't tell"], correct: 1 },
+                { type: "quantity", question: "9 + 9 vs 20 - 3", options: ["First more", "Second more", "Same", "Can't tell"], correct: 0 }
+            ];
+        }
+
+        function generatePaperFoldingLessons() {
+            return [
+                { type: "paper", question: "Fold a square in half. How many rectangles?", options: ["1", "2", "3", "4"], correct: 1 },
+                { type: "paper", question: "Fold paper in half, then half again. How many sections?", options: ["2", "3", "4", "8"], correct: 2 },
+                { type: "paper", question: "Cut a corner off folded paper. How many holes when opened?", options: ["1", "2", "3", "4"], correct: 1 },
+                { type: "paper", question: "Paper folded into quarters. Cut a circle in middle. How many circles total?", options: ["1", "2", "4", "8"], correct: 2 },
+                { type: "paper", question: "Fold square paper diagonally. What shape?", options: ["Rectangle", "Triangle", "Circle", "Square"], correct: 1 },
+                { type: "paper", question: "Fold in half 3 times. How many layers?", options: ["3", "6", "8", "9"], correct: 2 },
+                { type: "paper", question: "Square folded in half twice. Cut out square corner. Holes?", options: ["1", "2", "4", "8"], correct: 2 },
+                { type: "paper", question: "Fold paper in thirds. How many equal parts?", options: ["2", "3", "4", "6"], correct: 1 },
+                { type: "paper", question: "Fold rectangle in half lengthwise. Shape?", options: ["Square", "Rectangle", "Triangle", "Circle"], correct: 1 },
+                { type: "paper", question: "Fold square into triangle, then half again. Final shape?", options: ["Square", "Rectangle", "Triangle", "Pentagon"], correct: 2 },
+                { type: "paper", question: "Paper folded twice, punch 1 hole. Total holes?", options: ["1", "2", "4", "8"], correct: 2 },
+                { type: "paper", question: "Fold circle in half. What's the fold line called?", options: ["Radius", "Diameter", "Chord", "Arc"], correct: 1 },
+                { type: "paper", question: "Square folded into 4 triangles. How?", options: ["Diagonal folds", "Straight folds", "Zigzag", "Can't be done"], correct: 0 },
+                { type: "paper", question: "Fold paper in half 4 times. How many sections?", options: ["4", "8", "12", "16"], correct: 3 },
+                { type: "paper", question: "Rectangle folded matching corners. Creates?", options: ["Square", "Triangle", "Pentagon", "Smaller rectangle"], correct: 1 },
+                { type: "paper", question: "Paper folded twice, cut triangle on edge. Pattern?", options: ["1 triangle", "2 triangles", "4 triangles", "Line of triangles"], correct: 3 },
+                { type: "paper", question: "Fold square bringing all corners to center. Shape?", options: ["Smaller square", "Circle", "Octagon", "Diamond"], correct: 0 },
+                { type: "paper", question: "Half-fold then quarter-fold. Percentage of original size?", options: ["50%", "25%", "12.5%", "10%"], correct: 1 },
+                { type: "paper", question: "Accordion fold (zigzag) 4 times. How many panels?", options: ["3", "4", "5", "6"], correct: 2 },
+                { type: "paper", question: "Fold paper in half, cut curved edge. Open to reveal?", options: ["Circle", "Oval", "Heart", "Symmetrical shape"], correct: 3 }
+            ];
+        }
+
+        function generateFigureClassificationLessons() {
+            return [
+                { type: "classify", question: "Group rule: All have 4 sides. Which belongs? ⭐🔶⬛⭕", options: ["⭐", "🔶", "⬛", "⭕"], correct: 2 },
+                { type: "classify", question: "Group: 🔴🟥🔺 (all red). Which fits? 🔵🟢🟠🌹", options: ["🔵", "🟢", "🟠", "🌹"], correct: 3 },
+                { type: "classify", question: "Rule: All are curved. Belongs? ⭕🌙⬛⭐", options: ["⭕", "🌙", "⬛", "All round"], correct: 0 },
+                { type: "classify", question: "Group has: Large, Medium, Small ⭐. What's the pattern?", options: ["Color", "Size", "Shape", "Number"], correct: 1 },
+                { type: "classify", question: "All shapes have holes in middle: ⭕🔵⏺. Which fits? ⬛🔳⭐⏹", options: ["⬛", "🔳", "⭐", "⏹"], correct: 3 },
+                { type: "classify", question: "Group rule: Even number of sides. Which belongs? △⬠⬡⭐", options: ["△", "⬠", "⬡", "⭐"], correct: 1 },
+                { type: "classify", question: "All shapes point up ▲△🔺. Which fits? ▼⬆➡⬇", options: ["▼", "⬆", "➡", "⬇"], correct: 1 },
+                { type: "classify", question: "Pattern: All are 3D shapes. Belongs? Cube,Sphere,__", options: ["Circle", "Square", "Pyramid", "Triangle"], correct: 2 },
+                { type: "classify", question: "Group: All symmetrical ⭐⬛⭕. Odd one? ⭐⬛⭕🌙", options: ["⭐", "⬛", "⭕", "🌙"], correct: 3 },
+                { type: "classify", question: "Rule: All have straight edges. Fits? ⬛△⭕⬢", options: ["⬛", "△", "⭕", "⬢"], correct: 2 },
+                { type: "classify", question: "Group has warm colors 🔴🟠🟡. Which belongs? 🟢🔵🟣🌸", options: ["🟢", "🔵", "🟣", "🌸"], correct: 3 },
+                { type: "classify", question: "All shapes can roll 🔵⚽🎾. Odd one? 🔵⚽🎾⬛", options: ["🔵", "⚽", "🎾", "⬛"], correct: 3 },
+                { type: "classify", question: "Pattern: All have sharp corners ⬛△⬢. Belongs? ⭕🔶⭐💠", options: ["⭕", "🔶", "⭐", "💠"], correct: 2 },
+                { type: "classify", question: "Group: All same shape, different sizes ⭐✨🌟. Pattern?", options: ["Color", "Size", "Shape", "Brightness"], correct: 1 },
+                { type: "classify", question: "Rule: All have more than 4 sides. Belongs? △⬠⬡⭐", options: ["△", "⬠", "⬡", "⭐"], correct: 2 },
+                { type: "classify", question: "All filled solid ⬛🔵🔴. Odd one? ⬛🔵🔴⬜", options: ["⬛", "🔵", "🔴", "⬜"], correct: 3 },
+                { type: "classify", question: "Group rule: All are polygons. Belongs? ⭕△⬛⬡", options: ["⭕", "△", "⬛", "⬡"], correct: 3 },
+                { type: "classify", question: "Pattern: Increasing sides: △⬛⬡__", options: ["⭐", "⭕", "◯", "⬢"], correct: 0 },
+                { type: "classify", question: "All shapes made of straight lines. Odd? ⬛△⬢⭕", options: ["⬛", "△", "⬢", "⭕"], correct: 3 },
+                { type: "classify", question: "Group has rotational symmetry ⭐⬡⭕. Fits? ⭐⬡⭕🌙", options: ["⭐", "⬡", "⭕", "🌙"], correct: 0 }
+            ];
+        }
+
+        function generateNumberPuzzlesLessons() {
+            return [
+                { type: "number", question: "Pattern: 2,4,6,8,__. Add?", options: ["2", "3", "4", "5"], correct: 0, hint: "Add 2 each time!" },
+                { type: "number", question: "If ⭐=5 and 🌙=3, what is ⭐+🌙?", options: ["6", "7", "8", "9"], correct: 2 },
+                { type: "number", question: "Number riddle: I'm between 10 and 20, divisible by 3", options: ["12", "15", "18", "All"], correct: 3 },
+                { type: "number", question: "What comes next: 1,3,6,10,__? (add 2,3,4...)", options: ["13", "14", "15", "16"], correct: 2 },
+                { type: "number", question: "If 🔵=2 and you have 5 blues, total?", options: ["7", "8", "10", "12"], correct: 2 },
+                { type: "number", question: "Missing number: 5,10,__,20,25", options: ["12", "13", "15", "18"], correct: 2 },
+                { type: "number", question: "I'm an even number less than 10, more than 5", options: ["6", "8", "Both", "None"], correct: 2 },
+                { type: "number", question: "If A=1, B=2, C=3, what is A+B+C?", options: ["3", "6", "9", "12"], correct: 1 },
+                { type: "number", question: "Pattern: 1,4,9,16,__? (squares)", options: ["20", "24", "25", "30"], correct: 2 },
+                { type: "number", question: "What's the missing number: 3×__ = 15?", options: ["3", "4", "5", "6"], correct: 2 },
+                { type: "number", question: "Sequence: 20,18,16,14,__", options: ["10", "11", "12", "13"], correct: 2 },
+                { type: "number", question: "If you count by 5s: 5,10,15,__,25", options: ["18", "19", "20", "21"], correct: 2 },
+                { type: "number", question: "I'm half of 16 plus 2", options: ["8", "10", "12", "14"], correct: 1 },
+                { type: "number", question: "Double 7 then add 1", options: ["14", "15", "16", "17"], correct: 1 },
+                { type: "number", question: "What number × 3 = 18?", options: ["4", "5", "6", "7"], correct: 2 },
+                { type: "number", question: "Count backwards by 2s: 20,18,16,__", options: ["12", "13", "14", "15"], correct: 2 },
+                { type: "number", question: "I'm 5 more than 12", options: ["15", "16", "17", "18"], correct: 2 },
+                { type: "number", question: "Pattern: 2,6,18,54,__? (×3)", options: ["108", "162", "180", "216"], correct: 1 },
+                { type: "number", question: "If triangle=3 sides, pentagon=__ sides", options: ["4", "5", "6", "7"], correct: 1 },
+                { type: "number", question: "Take 30, divide by 5, then add 4", options: ["8", "9", "10", "11"], correct: 2 }
+            ];
+        }
+
+        function generateBuildingBlocksLessons() {
+            return [
+                { type: "blocks", question: "Stack of 3 blocks tall, 2 wide. Total blocks?", options: ["5", "6", "7", "8"], correct: 1 },
+                { type: "blocks", question: "2 layers, each with 4 blocks. Total?", options: ["6", "8", "10", "12"], correct: 1 },
+                { type: "blocks", question: "Build a 2×2×2 cube. How many blocks?", options: ["4", "6", "8", "10"], correct: 2 },
+                { type: "blocks", question: "Tower: 1 block on top, 2 middle, 3 bottom. Total?", options: ["5", "6", "7", "8"], correct: 1 },
+                { type: "blocks", question: "Rectangle 3 long, 2 wide, 1 tall. Blocks needed?", options: ["5", "6", "7", "8"], correct: 1 },
+                { type: "blocks", question: "Pyramid: bottom 4, next 3, top 2, peak 1. Total?", options: ["8", "9", "10", "11"], correct: 2 },
+                { type: "blocks", question: "3 layers: bottom 9 blocks (3×3), how many if each layer same?", options: ["18", "21", "24", "27"], correct: 3 },
+                { type: "blocks", question: "Wall 5 wide, 3 tall. Blocks?", options: ["8", "12", "15", "20"], correct: 2 },
+                { type: "blocks", question: "Build stairs: 1,2,3 blocks per step (3 steps). Total?", options: ["5", "6", "7", "8"], correct: 1 },
+                { type: "blocks", question: "2×3×2 rectangular prism. Total?", options: ["10", "11", "12", "14"], correct: 2 },
+                { type: "blocks", question: "4 blocks in a square. Add 1 layer on top. New total?", options: ["5", "6", "7", "8"], correct: 3 },
+                { type: "blocks", question: "Hollow square: 4×4 outside, remove 2×2 inside. Blocks?", options: ["10", "11", "12", "13"], correct: 2 },
+                { type: "blocks", question: "Tower getting smaller: 4,3,2,1 from bottom. Total?", options: ["9", "10", "11", "12"], correct: 1 },
+                { type: "blocks", question: "2 identical 2×2 towers side by side. Total blocks?", options: ["6", "8", "10", "12"], correct: 1 },
+                { type: "blocks", question: "L-shape: 3 blocks across, 3 up, sharing corner. Total?", options: ["4", "5", "6", "7"], correct: 1 },
+                { type: "blocks", question: "Cube missing 1 corner block. Started with 8, now?", options: ["5", "6", "7", "8"], correct: 2 },
+                { type: "blocks", question: "3×3 floor, add 1 block in each corner (4 total). Blocks?", options: ["11", "12", "13", "14"], correct: 2 },
+                { type: "blocks", question: "Build a + sign: 3 across, 3 down, sharing center. Total?", options: ["4", "5", "6", "7"], correct: 1 },
+                { type: "blocks", question: "5 blocks in line. Double the structure. Total?", options: ["8", "9", "10", "11"], correct: 2 },
+                { type: "blocks", question: "3×3×3 cube with center removed. Blocks?", options: ["24", "25", "26", "27"], correct: 2 }
+            ];
+        }
+
+        function generateBrainTeasersLessons() {
+            return [
+                { type: "riddle", question: "I have hands but can't clap. What am I?", options: ["Glove", "Clock", "Toy", "Robot"], correct: 1 },
+                { type: "riddle", question: "What gets wet while drying?", options: ["Towel", "Sponge", "Rain", "Cloth"], correct: 0 },
+                { type: "riddle", question: "If you have 3 apples and take away 2, how many do YOU have?", options: ["1", "2", "3", "5"], correct: 1 },
+                { type: "riddle", question: "What has a face and hands but no body?", options: ["Clock", "Doll", "Mirror", "Watch"], correct: 0 },
+                { type: "riddle", question: "I'm tall when young, short when old. What am I?", options: ["Person", "Tree", "Candle", "Building"], correct: 2 },
+                { type: "riddle", question: "What comes once in a minute, twice in a moment, never in 1000 years?", options: ["M", "Time", "Second", "Moment"], correct: 0 },
+                { type: "riddle", question: "I have keys but no locks. What am I?", options: ["Piano", "Computer", "Door", "Both A&B"], correct: 3 },
+                { type: "riddle", question: "What can you catch but not throw?", options: ["Ball", "Cold", "Fish", "Frisbee"], correct: 1 },
+                { type: "riddle", question: "If 2 is company and 3 is a crowd, what's 4 and 5?", options: ["More crowd", "Party", "Nine", "Group"], correct: 2 },
+                { type: "riddle", question: "What belongs to you but others use it more?", options: ["Toy", "Name", "Room", "Clothes"], correct: 1 },
+                { type: "riddle", question: "A farmer has 17 sheep, all but 9 die. How many left?", options: ["8", "9", "17", "0"], correct: 1 },
+                { type: "riddle", question: "What starts with E, ends with E, has 1 letter?", options: ["Eye", "Envelope", "Eagle", "Ease"], correct: 1 },
+                { type: "riddle", question: "I can fill a room but take no space. What am I?", options: ["Air", "Light", "Sound", "All"], correct: 1 },
+                { type: "riddle", question: "What has 88 keys but can't open doors?", options: ["Piano", "Computer", "Keyboard", "A&C"], correct: 0 },
+                { type: "riddle", question: "How many months have 28 days?", options: ["1", "2", "11", "12"], correct: 3 },
+                { type: "riddle", question: "What goes up but never comes down?", options: ["Balloon", "Age", "Airplane", "Kite"], correct: 1 },
+                { type: "riddle", question: "I have cities but no houses. What am I?", options: ["Map", "Globe", "Country", "State"], correct: 0 },
+                { type: "riddle", question: "What can run but never walks?", options: ["Water", "River", "Rain", "All"], correct: 1 },
+                { type: "riddle", question: "The more you take, the more you leave behind. What?", options: ["Steps", "Footprints", "Time", "Memories"], correct: 1 },
+                { type: "riddle", question: "What has words but never speaks?", options: ["Book", "Sign", "Letter", "All"], correct: 0 }
             ];
         }
 
