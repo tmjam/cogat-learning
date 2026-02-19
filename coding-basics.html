@@ -433,12 +433,16 @@
 
             <div class="output-area">
                 <h3 style="color: #667eea; margin-bottom: 10px;">🖌️ Drawing Tips:</h3>
-                <p>Click on the canvas to draw shapes! Each shape uses coordinates (x, y).</p>
+                <p><strong>Circle & Square:</strong> Click anywhere on the canvas to draw!</p>
+                <p><strong>Line:</strong> Click once for the start point, then click again for the end point.</p>
+                <p><strong>Colors:</strong> Use the "Change Color" button to pick different colors!</p>
+                <p id="draw-status" style="margin-top: 10px; font-weight: 700; color: #4ecdc4;">Ready to draw circles! Click the canvas! ⭕</p>
             </div>
         </div>
 
         <footer style="text-align: center; margin-top: 40px; padding: 20px; color: #666;">
-            <p>© 2026 Learning Adventure | <a href="privacy.html" style="color: #667eea;">Privacy Policy</a></p>
+            <p>© 2026 Learning Adventure | <a href="math-world.html">🧮 Math</a>
+                    <a href="privacy.html" style="color: #667eea;">Privacy Policy</a></p>
         </footer>
     </div>
 
@@ -450,6 +454,10 @@
         let currentColor = '#ff6b6b';
         const colors = ['#ff6b6b', '#4ecdc4', '#45b7d1', '#f7dc6f', '#a29bfe'];
         let colorIndex = 0;
+        let currentDrawShape = 'circle';
+        let drawingLine = false;
+        let lineStartX = 0;
+        let lineStartY = 0;
 
         function startRobotActivity() {
             document.getElementById('activities-section').style.display = 'none';
@@ -607,32 +615,119 @@
             const canvas = document.getElementById('draw-canvas');
             const ctx = canvas.getContext('2d');
             
+            // Set actual canvas size to match display size
+            canvas.width = canvas.offsetWidth;
+            canvas.height = 400;
+            
             canvas.addEventListener('click', (e) => {
                 const rect = canvas.getBoundingClientRect();
-                const x = e.clientX - rect.left;
-                const y = e.clientY - rect.top;
+                const scaleX = canvas.width / rect.width;
+                const scaleY = canvas.height / rect.height;
+                const x = (e.clientX - rect.left) * scaleX;
+                const y = (e.clientY - rect.top) * scaleY;
                 
+                ctx.strokeStyle = currentColor;
                 ctx.fillStyle = currentColor;
-                ctx.beginPath();
-                ctx.arc(x, y, 20, 0, Math.PI * 2);
-                ctx.fill();
+                ctx.lineWidth = 3;
+                
+                if (currentDrawShape === 'circle') {
+                    ctx.beginPath();
+                    ctx.arc(x, y, 30, 0, Math.PI * 2);
+                    ctx.fill();
+                    ctx.stroke();
+                } else if (currentDrawShape === 'square') {
+                    ctx.fillRect(x - 25, y - 25, 50, 50);
+                    ctx.strokeRect(x - 25, y - 25, 50, 50);
+                } else if (currentDrawShape === 'line') {
+                    if (!drawingLine) {
+                        // First click - start line
+                        lineStartX = x;
+                        lineStartY = y;
+                        drawingLine = true;
+                        // Draw a small circle to show start point
+                        ctx.beginPath();
+                        ctx.arc(x, y, 5, 0, Math.PI * 2);
+                        ctx.fill();
+                    } else {
+                        // Second click - complete line
+                        ctx.beginPath();
+                        ctx.moveTo(lineStartX, lineStartY);
+                        ctx.lineTo(x, y);
+                        ctx.stroke();
+                        drawingLine = false;
+                    }
+                }
             });
         }
 
         function drawShape(shape) {
-            alert(`Click on the canvas to draw a ${shape}!`);
+            currentDrawShape = shape;
+            drawingLine = false; // Reset line drawing state
+            
+            const statusEl = document.getElementById('draw-status');
+            
+            // Update the code display
+            const codeDiv = document.getElementById('draw-code');
+            if (shape === 'circle') {
+                codeDiv.innerHTML = '<div style="color: #4ecdc4;">// Now drawing: Circles</div><div style="color: #fff;">draw.circle(x, y, 30)</div>';
+                statusEl.textContent = 'Drawing circles! Click anywhere on the canvas! ⭕';
+                statusEl.style.color = '#4ecdc4';
+            } else if (shape === 'square') {
+                codeDiv.innerHTML = '<div style="color: #4ecdc4;">// Now drawing: Squares</div><div style="color: #fff;">draw.square(x, y, 50)</div>';
+                statusEl.textContent = 'Drawing squares! Click anywhere on the canvas! ⬛';
+                statusEl.style.color = '#45b7d1';
+            } else if (shape === 'line') {
+                codeDiv.innerHTML = '<div style="color: #4ecdc4;">// Now drawing: Lines</div><div style="color: #fff;">draw.line(x1, y1, x2, y2)</div><div style="color: #a29bfe;">// Click twice to draw a line</div>';
+                statusEl.textContent = 'Drawing lines! Click once for start, then click for end point! ➖';
+                statusEl.style.color = '#f7dc6f';
+            }
         }
 
         function changeColor() {
             colorIndex = (colorIndex + 1) % colors.length;
             currentColor = colors[colorIndex];
-            alert(`Color changed to ${currentColor}!`);
+            
+            const colorNames = ['Red', 'Teal', 'Blue', 'Yellow', 'Purple'];
+            const statusEl = document.getElementById('draw-status');
+            const currentColorName = colorNames[colorIndex];
+            
+            statusEl.textContent = `Color changed to ${currentColorName}! 🎨`;
+            statusEl.style.color = currentColor;
+            
+            // Show a preview dot on the canvas temporarily
+            const canvas = document.getElementById('draw-canvas');
+            const ctx = canvas.getContext('2d');
+            const tempX = 50;
+            const tempY = 50;
+            
+            ctx.fillStyle = currentColor;
+            ctx.beginPath();
+            ctx.arc(tempX, tempY, 15, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.strokeStyle = '#fff';
+            ctx.lineWidth = 2;
+            ctx.stroke();
+            
+            setTimeout(() => {
+                statusEl.textContent = `Now drawing with ${currentColorName} color!`;
+            }, 1500);
         }
 
         function clearCanvas() {
             const canvas = document.getElementById('draw-canvas');
             const ctx = canvas.getContext('2d');
             ctx.clearRect(0, 0, canvas.width, canvas.height);
+            drawingLine = false; // Reset line drawing state
+            
+            // Reset code display
+            document.getElementById('draw-code').innerHTML = `
+                <div style="color: #4ecdc4;">// Drawing Commands:</div>
+                <div style="color: #fff; margin-top: 10px;">
+                    <div>draw.circle(x, y, radius)</div>
+                    <div>draw.square(x, y, size)</div>
+                    <div>draw.line(x1, y1, x2, y2)</div>
+                </div>
+            `;
         }
     </script>
 </body>
